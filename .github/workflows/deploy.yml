@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # 始终运行，但在步骤中检查 Secrets
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,15 +15,29 @@ jobs:
       - name: Check Secrets
         id: check-secrets
         run: |
-          if [ -n "${{ secrets.CLOUDFLARE_API_TOKEN }}" ] && [ -n "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then
+          CF_TOKEN="${{ secrets.CLOUDFLARE_API_TOKEN }}"
+          CF_ACCOUNT="${{ secrets.CLOUDFLARE_ACCOUNT_ID }}"
+          DATA_TOKEN="${{ secrets.DATA_REPO_TOKEN }}"
+          
+          if [ -n "$CF_TOKEN" ] && [ -n "$CF_ACCOUNT" ]; then
             echo "secrets-configured=true" >> $GITHUB_OUTPUT
           else
             echo "secrets-configured=false" >> $GITHUB_OUTPUT
             echo "::notice::Cloudflare Secrets not configured. Deployment is handled by Cloudflare Pages direct integration."
+            echo "If you want to use GitHub Actions for deployment, configure the following secrets:"
+            echo "- CLOUDFLARE_API_TOKEN"
+            echo "- CLOUDFLARE_ACCOUNT_ID"
+            echo "- DATA_REPO_TOKEN (optional, for private data)"
+          fi
+          
+          if [ -n "$DATA_TOKEN" ]; then
+            echo "data-token-configured=true" >> $GITHUB_OUTPUT
+          else
+            echo "data-token-configured=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Fetch private data
-        if: steps.check-secrets.outputs.secrets-configured == 'true' && secrets.DATA_REPO_TOKEN != ''
+        if: steps.check-secrets.outputs.secrets-configured == 'true' && steps.check-secrets.outputs.data-token-configured == 'true'
         run: |
           echo "Fetching data from private repository..."
           TEMP_DIR=$(mktemp -d)

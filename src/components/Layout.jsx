@@ -106,8 +106,8 @@ function Layout() {
 
   const playNext = () => {
     if (!showMusicPlayer) return
-    // 手动点击下一曲时，直接播放下一首（不根据播放模式）
-    const nextIndex = (currentTrack + 1) % songs.length
+    // 根据播放模式获取下一首
+    const nextIndex = getNextTrackIndex()
     setCurrentTrack(nextIndex)
     setIsPlaying(true)
   }

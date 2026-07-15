@@ -58,15 +58,31 @@ export default function postsPlugin() {
         const fm = contentZh?.data || contentEn?.data || contentDefault?.data || {}
         
         // 标题处理（支持多语言）
-        const title = {
-          zh: contentZh?.data?.title || fm.title || 'Untitled',
-          en: contentEn?.data?.title || fm.title || 'Untitled'
+        let title
+        if (typeof fm.title === 'object' && fm.title !== null) {
+          title = {
+            zh: fm.title.zh || contentZh?.data?.title || 'Untitled',
+            en: fm.title.en || contentEn?.data?.title || 'Untitled'
+          }
+        } else {
+          title = {
+            zh: contentZh?.data?.title || fm.title || 'Untitled',
+            en: contentEn?.data?.title || fm.title || 'Untitled'
+          }
         }
         
         // 描述处理（支持多语言）
-        const description = {
-          zh: contentZh?.data?.description || fm.description || '',
-          en: contentEn?.data?.description || fm.description || ''
+        let description
+        if (typeof fm.description === 'object' && fm.description !== null) {
+          description = {
+            zh: fm.description.zh || contentZh?.data?.description || '',
+            en: fm.description.en || contentEn?.data?.description || ''
+          }
+        } else {
+          description = {
+            zh: contentZh?.data?.description || fm.description || '',
+            en: contentEn?.data?.description || fm.description || ''
+          }
         }
         
         posts.push({

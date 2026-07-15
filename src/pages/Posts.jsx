@@ -365,7 +365,7 @@ function Posts() {
                           e.currentTarget.style.background = isActive ? theme.bgTertiary : theme.bgSecondary
                         }}
                       >
-                        {cat.name}
+                        {typeof cat.name === 'object' ? (cat.name[lang] || cat.name.zh || cat.name.en || cat.id) : cat.name}
                         <span style={{
                           padding: '1px 5px',
                           background: theme.bgSecondary,

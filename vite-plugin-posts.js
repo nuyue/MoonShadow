@@ -105,13 +105,21 @@ export default function postsPlugin() {
           }
         })
         
-        // 收集分类
+        // 收集分类（支持多语言）
         for (const cat of (fm.categories || [])) {
           const id = cat.toLowerCase().trim()
           if (!categoryMap.has(id)) {
+            // 分类名称多语言映射
+            const categoryNames = {
+              tech: { zh: '技术', en: 'Tech' },
+              dev: { zh: '开发', en: 'Dev' },
+              life: { zh: '生活', en: 'Life' },
+              other: { zh: '其他', en: 'Other' }
+            }
+            const name = categoryNames[id] || { zh: cat, en: cat }
             categoryMap.set(id, {
               id,
-              name: cat,
+              name,
               count: 0
             })
           }

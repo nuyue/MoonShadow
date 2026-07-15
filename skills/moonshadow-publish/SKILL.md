@@ -14,6 +14,46 @@ description: "Publish articles, tools, and music to MoonShadow blog. Invoke when
 - 发布友链
 - 支持私有数据仓库和主仓库直接修改两种模式
 
+## 安装后配置检查
+
+AI 在首次调用此 skill 时，应检查以下环境变量配置：
+
+### 必需配置（私有数据仓库模式）
+
+| 变量 | 说明 | 获取方式 |
+|------|------|---------|
+| `DATA_REPO_TOKEN` | GitHub PAT，用于读取私有数据仓库 | GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token，勾选 `repo` 权限 |
+
+### 可选配置
+
+| 变量 | 说明 | 默认值 |
+|------|------|--------|
+| `DATA_REPO_PATH` | 数据仓库路径 | `nuyue/MoonShadow-Data` |
+| `DATA_ARTICLES_MERGE` | 是否合并文章 | `true` |
+| `DATA_MUSIC_MERGE` | 是否合并音乐 | `true` |
+| `DATA_LINKS_MERGE` | 是否合并友链 | `true` |
+| `DATA_TOOLS_MERGE` | 是否合并工具 | `true` |
+
+### 配置检查流程
+
+1. **检测模式**：检查 `DATA_REPO_TOKEN` 是否已配置
+2. **未配置时提示**：
+   > "检测到您尚未配置 DATA_REPO_TOKEN。请选择发布模式：
+   > - **主仓库直接修改**：无需配置 Token，直接修改 Fork 的主仓库
+   > - **私有数据仓库**：需要 GitHub Personal Access Token（repo 权限），数据保存在私有仓库"
+3. **确认模式**：根据用户选择进入对应流程
+
+### GitHub Token 获取步骤
+
+1. 登录 GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
+2. 点击 "Generate new token"
+3. 填写：
+   - Note: `MoonShadow Data Repo`
+   - Expiration: 根据需要选择（建议 90 天或 No expiration）
+   - 权限：勾选 `repo`（完整的仓库访问权限）
+4. 点击 "Generate token"
+5. 复制生成的 Token，配置到环境变量 `DATA_REPO_TOKEN`
+
 ## 仓库模式
 
 ### 模式一：主仓库直接修改
@@ -190,12 +230,13 @@ Content...
 
 ## 执行流程
 
-1. **确认发布类型**：文章/音乐/友链
-2. **确认仓库模式**：主仓库/私有数据仓库
-3. **收集必要信息**：标题、内容、标签等
-4. **创建/修改文件**：根据模式选择正确的路径
-5. **验证格式**：确保 JSON 格式正确、Markdown 格式正确
-6. **提交更改**：提交并推送到仓库
+1. **检查配置**：检测 `DATA_REPO_TOKEN` 是否配置，确定模式
+2. **确认发布类型**：文章/音乐/友链
+3. **确认仓库模式**：主仓库/私有数据仓库
+4. **收集必要信息**：标题、内容、标签等
+5. **创建/修改文件**：根据模式选择正确的路径
+6. **验证格式**：确保 JSON 格式正确、Markdown 格式正确
+7. **提交更改**：提交并推送到仓库
 
 ## 注意事项
 
@@ -204,3 +245,4 @@ Content...
 - 多语言内容必须同时提供 `zh` 和 `en` 两个版本
 - 私有仓库的更改需要 Cloudflare Pages 重新部署后生效
 - 文章 front matter 中的 `title` 和 `description` 推荐使用多语言对象格式
+- 首次使用时应检查 Token 配置，引导用户选择合适的模式

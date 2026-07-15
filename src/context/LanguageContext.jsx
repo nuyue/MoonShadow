@@ -85,7 +85,7 @@ const translations = {
     },
     home: {
       title: '怒月',
-      subtitle: '2077年，我的城市被选为全美最不宜居的地方。主要问题？暴力犯罪率飙升，贫困线下的人数比其他任何地方都多。',
+      subtitle: '看未来远不如看过去，要来得清楚。',
       badge: 'v2026.1',
       techReact: 'React 19',
       techVite: 'Vite 7',

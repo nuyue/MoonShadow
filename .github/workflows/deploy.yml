@@ -8,15 +8,23 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # 只有当 Secrets 配置后才运行
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
-    
+    # 始终运行，但在步骤中检查 Secrets
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check Secrets
+        id: check-secrets
+        run: |
+          if [ -n "${{ secrets.CLOUDFLARE_API_TOKEN }}" ] && [ -n "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then
+            echo "secrets-configured=true" >> $GITHUB_OUTPUT
+          else
+            echo "secrets-configured=false" >> $GITHUB_OUTPUT
+            echo "::notice::Cloudflare Secrets not configured. Deployment is handled by Cloudflare Pages direct integration."
+          fi
+
       - name: Fetch private data
-        if: ${{ secrets.DATA_REPO_TOKEN != '' }}
+        if: steps.check-secrets.outputs.secrets-configured == 'true' && secrets.DATA_REPO_TOKEN != ''
         run: |
           echo "Fetching data from private repository..."
           TEMP_DIR=$(mktemp -d)
@@ -62,31 +70,22 @@ jobs:
           echo "Data fetch completed!"
 
       - name: Setup Node.js
+        if: steps.check-secrets.outputs.secrets-configured == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Install dependencies
+        if: steps.check-secrets.outputs.secrets-configured == 'true'
         run: npm ci
 
       - name: Build
+        if: steps.check-secrets.outputs.secrets-configured == 'true'
         run: npm run build
 
       - name: Deploy to Cloudflare Pages
+        if: steps.check-secrets.outputs.secrets-configured == 'true'
         run: npx wrangler pages deploy dist --project-name=MoonShadow
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-
-  # 显示提示信息（当 Secrets 未配置时）
-  skip-notice:
-    runs-on: ubuntu-latest
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '' }}
-    steps:
-      - name: Notice
-        run: |
-          echo "::notice::Cloudflare Secrets not configured. Deployment is handled by Cloudflare Pages direct integration."
-          echo "If you want to use GitHub Actions for deployment, configure the following secrets:"
-          echo "- CLOUDFLARE_API_TOKEN"
-          echo "- CLOUDFLARE_ACCOUNT_ID"
-          echo "- DATA_REPO_TOKEN (optional, for private data)"

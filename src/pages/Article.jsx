@@ -332,6 +332,55 @@ function Article() {
               </span>
             </div>
 
+            {/* Categories */}
+            {post.categories && post.categories.length > 0 && (
+              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                {post.categories.map(cat => {
+                  // 分类名称多语言支持
+                  const categoryNames = {
+                    tech: { zh: '技术', en: 'Tech' },
+                    dev: { zh: '开发', en: 'Dev' },
+                    life: { zh: '生活', en: 'Life' },
+                    other: { zh: '其他', en: 'Other' }
+                  }
+                  const id = cat.toLowerCase()
+                  const displayName = categoryNames[id] ? categoryNames[id][lang] : cat
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => navigate(`/articles?category=${id}`)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        padding: '4px 10px',
+                        fontSize: '11px',
+                        fontFamily: font.mono,
+                        background: theme.bgSecondary,
+                        color: theme.textSecondary,
+                        borderRadius: radius.sm,
+                        border: `1px solid ${theme.border}`,
+                        textDecoration: 'none',
+                        transition: 'all 0.15s ease',
+                        cursor: 'pointer',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = theme.bgTertiary
+                        e.currentTarget.style.color = theme.textPrimary
+                        e.currentTarget.style.borderColor = theme.borderHover
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = theme.bgSecondary
+                        e.currentTarget.style.color = theme.textSecondary
+                        e.currentTarget.style.borderColor = theme.border
+                      }}
+                    >
+                      {displayName}
+                    </button>
+                  )
+                })}
+              </div>
+            )}
+
             {/* Reading time */}
             <div style={{
               display: 'flex',

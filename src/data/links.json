@@ -1,0 +1,42 @@
+[
+  {
+    "name": "ModelsToken",
+    "url": "https://modelstoken.com",
+    "desc": {
+      "zh": "大模型中转站",
+      "en": "AI Model Proxy"
+    },
+    "logo": "/modelstoken.ico",
+    "gradient": "linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)"
+  },
+  {
+    "name": "Cloudflare",
+    "url": "https://cloudflare.com",
+    "desc": {
+      "zh": "全球边缘网络",
+      "en": "Global Edge Network"
+    },
+    "logo": "/cloudflare.svg",
+    "gradient": "linear-gradient(135deg, #F6821F 0%, #F38020 100%)"
+  },
+  {
+    "name": "OVHcloud",
+    "url": "https://ovh.com",
+    "desc": {
+      "zh": "欧洲云计算服务商",
+      "en": "European Cloud Provider"
+    },
+    "logo": "/ovh.ico",
+    "gradient": "linear-gradient(135deg, #001E50 0%, #0066CC 100%)"
+  },
+  {
+    "name": "Google",
+    "url": "https://google.com",
+    "desc": {
+      "zh": "全球搜索引擎",
+      "en": "Global Search Engine"
+    },
+    "logo": "/google.ico",
+    "gradient": "linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 75%, #EA4335 100%)"
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "autoPlay": false,
+  "defaultVolume": 50,
+  "defaultMode": "loop",
+  "songs": [
+    {
+      "id": "dark-side-rhythm",
+      "title": "Dark Side Rhythm",
+      "artist": "Unknown",
+      "file": "Dark Side Rhythm.mp3",
+      "lrc": "Dark Side Rhythm.lrc"
+    },
+    {
+      "id": "xlowly",
+      "title": "XLOWLY",
+      "artist": "Unknown",
+      "file": "XLOWLY.mp3"
+    },
+    {
+      "id": "qiansixi",
+      "title": "牵丝戏",
+      "artist": "Unknown",
+      "file": "牵丝戏.mp3"
+    },
+    {
+      "id": "yuanyangxi",
+      "title": "鸳鸯戏",
+      "artist": "Unknown",
+      "file": "鸳鸯戏.mp3"
+    }
+  ]
+}

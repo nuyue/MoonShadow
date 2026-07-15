@@ -1,0 +1,12 @@
+name = "moonshadow"
+pages_build_output_dir = "dist"
+
+# 环境变量请在 Cloudflare Dashboard → Settings → Environment variables 中配置
+# 必需变量：
+#   DATA_REPO_TOKEN - GitHub Personal Access Token（Secret 类型）
+# 可选变量：
+#   DATA_REPO_PATH - 数据仓库路径（默认 nuyue/MoonShadow-Data）
+#   DATA_ARTICLES_MERGE - 是否合并文章（默认 true，设置 false 则覆盖）
+#   DATA_MUSIC_MERGE - 是否合并音乐（默认 true，设置 false 则覆盖）
+#   DATA_LINKS_MERGE - 是否合并友链（默认 true，设置 false 则覆盖）
+#   DATA_TOOLS_MERGE - 是否合并工具（默认 true，设置 false 则覆盖）

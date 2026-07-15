@@ -1,0 +1,401 @@
+:root {
+  --bg-primary: #0A0A0F;
+  --bg-secondary: #12121A;
+  --bg-tertiary: #1A1A24;
+  --text-primary: #E4E4E7;
+  --text-secondary: #A1A1AA;
+  --text-muted: #52525B;
+  --accent-purple: #8B5CF6;
+  --accent-blue: #3B82F6;
+  --accent-cyan: #06B6D4;
+  --border: #27272A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Sidebar Tooltip */
+aside > nav > div:hover .tooltip,
+aside > div > div:hover .tooltip {
+  opacity: 1 !important;
+}
+
+a:hover .tooltip {
+  opacity: 1 !important;
+}
+
+button:hover + .tooltip {
+  opacity: 1 !important;
+}
+
+/* Markdown Content Styles */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.markdown-content h1 { font-size: 1.5em; }
+.markdown-content h2 { font-size: 1.3em; }
+.markdown-content h3 { font-size: 1.1em; }
+.markdown-content h4 { font-size: 1em; }
+
+.markdown-content p {
+  margin-bottom: 1em;
+}
+
+.markdown-content a {
+  color: #3B82F6;
+  text-decoration: none;
+}
+
+.markdown-content a:hover {
+  text-decoration: underline;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25em;
+}
+
+.markdown-content blockquote {
+  border-left: 3px solid #3B82F6;
+  padding-left: 1em;
+  margin: 1em 0;
+  color: var(--text-secondary);
+}
+
+/* Code Block Styles */
+.markdown-content pre {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  padding-top: 40px;
+  margin: 1.5em 0;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.markdown-content pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+
+.markdown-content code {
+  background: rgba(59, 130, 246, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+}
+
+/* highlight.js Atom One Dark Theme (adapted for dark mode) */
+.hljs {
+  color: #abb2bf;
+  background: transparent;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: #98c379;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee;
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+/* 亮色模式下的代码高亮 - Atom One Light */
+[data-theme="light"] .hljs {
+  color: #383a42;
+}
+
+[data-theme="light"] .hljs-comment,
+[data-theme="light"] .hljs-quote {
+  color: #a0a1a7;
+  font-style: italic;
+}
+
+[data-theme="light"] .hljs-doctag,
+[data-theme="light"] .hljs-keyword,
+[data-theme="light"] .hljs-formula {
+  color: #a626a4;
+}
+
+[data-theme="light"] .hljs-section,
+[data-theme="light"] .hljs-name,
+[data-theme="light"] .hljs-selector-tag,
+[data-theme="light"] .hljs-deletion,
+[data-theme="light"] .hljs-subst {
+  color: #e45649;
+}
+
+[data-theme="light"] .hljs-literal {
+  color: #0184bb;
+}
+
+[data-theme="light"] .hljs-string,
+[data-theme="light"] .hljs-regexp,
+[data-theme="light"] .hljs-addition,
+[data-theme="light"] .hljs-attribute,
+[data-theme="light"] .hljs-meta .hljs-string {
+  color: #50a14f;
+}
+
+[data-theme="light"] .hljs-attr,
+[data-theme="light"] .hljs-variable,
+[data-theme="light"] .hljs-template-variable,
+[data-theme="light"] .hljs-type,
+[data-theme="light"] .hljs-selector-class,
+[data-theme="light"] .hljs-selector-attr,
+[data-theme="light"] .hljs-selector-pseudo,
+[data-theme="light"] .hljs-number {
+  color: #986801;
+}
+
+[data-theme="light"] .hljs-symbol,
+[data-theme="light"] .hljs-bullet,
+[data-theme="light"] .hljs-link,
+[data-theme="light"] .hljs-meta,
+[data-theme="light"] .hljs-selector-id,
+[data-theme="light"] .hljs-title {
+  color: #4078f2;
+}
+
+[data-theme="light"] .hljs-built_in,
+[data-theme="light"] .hljs-title.class_,
+[data-theme="light"] .hljs-class .hljs-title {
+  color: #c18401;
+}
+
+/* Copy Button */
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: opacity 0.1s ease, background 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 鼠标悬停代码块时显示按钮 */
+.markdown-content pre:hover .copy-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 鼠标悬停按钮时高亮 */
+.copy-button:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+/* 复制成功状态 */
+.copy-button.copied {
+  background: var(--bg-tertiary);
+  border-color: var(--text-muted);
+  color: var(--text-secondary);
+}
+
+/* 暗色模式下的复制按钮 */
+[data-theme="dark"] .copy-button {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #A3A3A3;
+}
+
+[data-theme="dark"] .copy-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #E5E5E5;
+}
+
+[data-theme="dark"] .copy-button.copied {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #E5E5E5;
+}
+
+/* 亮色模式下的复制按钮 */
+[data-theme="light"] .copy-button {
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #6C757D;
+}
+
+[data-theme="light"] .copy-button:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #212529;
+}
+
+[data-theme="light"] .copy-button.copied {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #212529;
+}
+
+/* 移动端始终显示复制按钮 */
+@media (max-width: 768px) {
+  .copy-button {
+    opacity: 0.8;
+    pointer-events: auto;
+  }
+  
+  .copy-button:hover {
+    opacity: 1;
+  }
+}
+
+/* Code Language Badge */
+.code-lang-badge {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  padding: 2px 8px;
+  background: transparent;
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Color Input - 暗黑模式修复白边 */
+input[type="color"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 4px;
+}

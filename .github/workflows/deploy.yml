@@ -1,0 +1,92 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # 只有当 Secrets 配置后才运行
+    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' && secrets.CLOUDFLARE_ACCOUNT_ID != '' }}
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch private data
+        if: ${{ secrets.DATA_REPO_TOKEN != '' }}
+        run: |
+          echo "Fetching data from private repository..."
+          TEMP_DIR=$(mktemp -d)
+          git clone --depth 1 https://${{ secrets.DATA_REPO_TOKEN }}@github.com/${{ vars.DATA_REPO_PATH || 'nuyue/MoonShadow-Data' }}.git "$TEMP_DIR" 2>&1 | sed 's/${{ secrets.DATA_REPO_TOKEN }}/****/g'
+          
+          # Copy articles
+          if [ -d "$TEMP_DIR/articles" ]; then
+            rm -rf articles/*
+            cp -r "$TEMP_DIR/articles"/* articles/ 2>/dev/null || true
+          fi
+          
+          # Copy music
+          if [ -d "$TEMP_DIR/music" ]; then
+            rm -rf music/*
+            cp -r "$TEMP_DIR/music"/* music/ 2>/dev/null || true
+          fi
+          
+          # Copy links
+          if [ -f "$TEMP_DIR/links.json" ]; then
+            mkdir -p src/data
+            cp "$TEMP_DIR/links.json" src/data/
+          fi
+          
+          # Copy music config
+          if [ -f "$TEMP_DIR/music.json" ]; then
+            mkdir -p src/data
+            cp "$TEMP_DIR/music.json" src/data/
+          fi
+          
+          # Copy tools config
+          if [ -f "$TEMP_DIR/tools.json" ]; then
+            mkdir -p src/data
+            cp "$TEMP_DIR/tools.json" src/data/
+          fi
+          
+          # Copy tools components (complete customization)
+          if [ -d "$TEMP_DIR/tools" ]; then
+            rm -rf src/pages/tools/*
+            cp -r "$TEMP_DIR/tools"/* src/pages/tools/ 2>/dev/null || true
+          fi
+          
+          rm -rf "$TEMP_DIR"
+          echo "Data fetch completed!"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy dist --project-name=MoonShadow
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  # 显示提示信息（当 Secrets 未配置时）
+  skip-notice:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.CLOUDFLARE_API_TOKEN == '' || secrets.CLOUDFLARE_ACCOUNT_ID == '' }}
+    steps:
+      - name: Notice
+        run: |
+          echo "::notice::Cloudflare Secrets not configured. Deployment is handled by Cloudflare Pages direct integration."
+          echo "If you want to use GitHub Actions for deployment, configure the following secrets:"
+          echo "- CLOUDFLARE_API_TOKEN"
+          echo "- CLOUDFLARE_ACCOUNT_ID"
+          echo "- DATA_REPO_TOKEN (optional, for private data)"

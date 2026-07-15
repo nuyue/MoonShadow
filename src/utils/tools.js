@@ -1,0 +1,178 @@
+// 工具配置 - 所有纯前端工具的元数据
+// 支持从 tools.json 动态加载
+
+import { toolsData } from 'virtual:posts-data'
+
+// 如果 toolsData 为空，使用默认配置
+const defaultToolCategories = [
+  {
+    id: 'barcode',
+    name: { zh: '条码/二维码', en: 'Barcode/QR' },
+    icon: 'QrCode',
+    color: '#0EA5E9',
+    tools: [
+      { id: 'barcode-qr-tool', name: { zh: '条码/二维码工具', en: 'Barcode/QR Tool' }, icon: 'QrCode', desc: { zh: '生成/识别二维码和条码，支持自定义Logo', en: 'Generate/Scan QR & Barcode with custom Logo' } },
+    ]
+  },
+  {
+    id: 'encoding',
+    name: { zh: '编码转换', en: 'Encoding' },
+    icon: 'Binary',
+    color: '#3B82F6',
+    tools: [
+      { id: 'encoding-convert', name: { zh: '编码转换工具', en: 'Encoding Converter' }, icon: 'Binary', desc: { zh: '多种编码格式转换', en: 'Multiple encoding conversion' } },
+    ]
+  },
+  {
+    id: 'crypto',
+    name: { zh: '加密解密', en: 'Crypto' },
+    icon: 'Lock',
+    color: '#EF4444',
+    tools: [
+      { id: 'crypto-tool', name: { zh: '加密解密工具', en: 'Crypto Tool' }, icon: 'Lock', desc: { zh: '哈希、AES、Bcrypt、HMAC、JWT', en: 'Hash, AES, Bcrypt, HMAC, JWT' } },
+    ]
+  },
+  {
+    id: 'format',
+    name: { zh: '格式化', en: 'Format' },
+    icon: 'Braces',
+    color: '#10B981',
+    tools: [
+      { id: 'format-tool', name: { zh: '格式化工具', en: 'Format Tool' }, icon: 'Braces', desc: { zh: 'JSON/JS/CSS/SQL/XML/YAML/TOML 格式化转换', en: 'JSON/JS/CSS/SQL/XML/YAML/TOML format/convert' } },
+    ]
+  },
+  {
+    id: 'text',
+    name: { zh: '文本处理', en: 'Text' },
+    icon: 'Type',
+    color: '#F59E0B',
+    tools: [
+      { id: 'text-tool', name: { zh: '文本处理工具', en: 'Text Tool' }, icon: 'Type', desc: { zh: '文本统计/转换/正则等', en: 'Text stats/convert/regex etc' } },
+    ]
+  },
+  {
+    id: 'file',
+    name: { zh: '文件处理', en: 'File Tools' },
+    icon: 'File',
+    color: '#8B5CF6',
+    tools: [
+      { id: 'file-parser', name: { zh: '文件解析器', en: 'File Parser' }, icon: 'FileSearch', desc: { zh: '解析 PE/ELF/Mach-O 可执行文件', en: 'Parse PE/ELF/Mach-O executables' } },
+    ]
+  },
+  {
+    id: 'number',
+    name: { zh: '数值计算', en: 'Number' },
+    icon: 'Calculator',
+    color: '#EC4899',
+    tools: [
+      { id: 'number-tool', name: { zh: '数值计算工具', en: 'Number Tool' }, icon: 'Calculator', desc: { zh: '进制转换/数学计算/GCD等', en: 'Base/Math/GCD etc' } },
+    ]
+  },
+  {
+    id: 'css',
+    name: { zh: 'CSS 工具', en: 'CSS Tools' },
+    icon: 'Palette',
+    color: '#F472B6',
+    tools: [
+      { id: 'css-tool', name: { zh: 'CSS 工具集', en: 'CSS Tool' }, icon: 'Palette', desc: { zh: '颜色/调色板/对比度/渐变/阴影/单位换算', en: 'Color/Palette/Contrast/Gradient/Shadow/Unit' } },
+    ]
+  },
+  {
+    id: 'json',
+    name: { zh: 'JSON 工具', en: 'JSON Tools' },
+    icon: 'Braces',
+    color: '#6366F1',
+    tools: [
+      { id: 'json-tool', name: { zh: 'JSON 工具集', en: 'JSON Tool' }, icon: 'Braces', desc: { zh: 'Schema生成/验证/JSONPath/合并/转换', en: 'Schema gen/verify/JSONPath/merge/convert' } },
+    ]
+  },
+  {
+    id: 'reference',
+    name: { zh: '常用表', en: 'Reference' },
+    icon: 'BookOpen',
+    color: '#64748B',
+    tools: [
+      { id: 'reference-table', name: { zh: '常用表', en: 'Reference Table' }, icon: 'Table', desc: { zh: 'ASCII/HTTP状态码/MIME/端口参考', en: 'ASCII/HTTP/MIME/Ports reference' } },
+    ]
+  },
+  {
+    id: 'dev',
+    name: { zh: '开发工具', en: 'Dev Tools' },
+    icon: 'Code',
+    color: '#14B8A6',
+    tools: [
+      { id: 'dev-tool', name: { zh: '开发工具集', en: 'Dev Tool' }, icon: 'Code', desc: { zh: '生成各种配置文件', en: 'Generate config files' } },
+    ]
+  },
+  {
+    id: 'datetime',
+    name: { zh: '时间日期', en: 'DateTime' },
+    icon: 'Calendar',
+    color: '#06B6D4',
+    tools: [
+      { id: 'timestamp', name: { zh: '时间戳转换', en: 'Timestamp Convert' }, icon: 'Clock', desc: { zh: '时间戳与日期互转', en: 'Timestamp to date' } },
+      { id: 'date-calc', name: { zh: '日期计算', en: 'Date Calculator' }, icon: 'CalendarDays', desc: { zh: '日期加减计算', en: 'Date calculation' } },
+      { id: 'duration-format', name: { zh: '时长格式化', en: 'Duration Format' }, icon: 'Timer', desc: { zh: '时长格式转换', en: 'Duration formatting' } },
+      { id: 'epoch-formats', name: { zh: '时间格式转换', en: 'Epoch Formats' }, icon: 'Clock', desc: { zh: '多种时间格式转换', en: 'Multiple time formats' } },
+      { id: 'timezone-convert', name: { zh: '时区转换', en: 'Timezone Convert' }, icon: 'Globe', desc: { zh: '时区时间转换', en: 'Timezone conversion' } },
+      { id: 'cron-parser', name: { zh: 'Cron 解析', en: 'Cron Parser' }, icon: 'Timer', desc: { zh: 'Cron 表达式解析', en: 'Parse cron expression' } },
+    ]
+  },
+  {
+    id: 'web',
+    name: { zh: 'Web 开发', en: 'Web Dev' },
+    icon: 'Globe',
+    color: '#6366F1',
+    tools: [
+      { id: 'url-parser', name: { zh: 'URL 解析', en: 'URL Parser' }, icon: 'Link', desc: { zh: '解析 URL 组成', en: 'Parse URL components' } },
+      { id: 'user-agent', name: { zh: 'User Agent 解析', en: 'User Agent Parser' }, icon: 'Monitor', desc: { zh: '解析 UA 字符串', en: 'Parse user agent' } },
+      { id: 'http-headers', name: { zh: 'HTTP 请求头', en: 'HTTP Headers' }, icon: 'Server', desc: { zh: 'HTTP 头参考表', en: 'HTTP headers reference' } },
+      { id: 'ip-subnet', name: { zh: 'IP 子网计算', en: 'IP Subnet' }, icon: 'Network', desc: { zh: 'IP 子网计算器', en: 'IP subnet calculator' } },
+    ]
+  },
+  {
+    id: 'dev-extend',
+    name: { zh: '开发辅助', en: 'Dev Helpers' },
+    icon: 'Wrench',
+    color: '#8B5CF6',
+    tools: [
+      { id: 'curl-converter', name: { zh: 'cURL 转换', en: 'cURL Converter' }, icon: 'Terminal', desc: { zh: 'cURL 命令转换', en: 'Convert cURL command' } },
+      { id: 'openapi-viewer', name: { zh: 'OpenAPI 查看器', en: 'OpenAPI Viewer' }, icon: 'FileJson', desc: { zh: '查看 OpenAPI 文档', en: 'View OpenAPI docs' } },
+      { id: 'icon-search', name: { zh: '图标搜索', en: 'Icon Search' }, icon: 'Search', desc: { zh: '搜索 Lucide 图标', en: 'Search Lucide icons' } },
+      { id: 'font-pair', name: { zh: '字体搭配', en: 'Font Pair' }, icon: 'Type', desc: { zh: '字体搭配推荐', en: 'Font pairing suggestions' } },
+    ]
+  },
+  {
+    id: 'svg',
+    name: { zh: 'SVG 工具', en: 'SVG Tools' },
+    icon: 'Square',
+    color: '#A855F7',
+    tools: [
+      { id: 'svg-optimizer', name: { zh: 'SVG 优化', en: 'SVG Optimizer' }, icon: 'Minimize', desc: { zh: '优化 SVG 文件', en: 'Optimize SVG' } },
+      { id: 'svg-to-data-uri', name: { zh: 'SVG 转 Data URI', en: 'SVG to Data URI' }, icon: 'Link', desc: { zh: 'SVG 转 Data URI', en: 'Convert SVG to Data URI' } },
+    ]
+  },
+]
+
+export const toolCategories = toolsData.length > 0 ? toolsData : defaultToolCategories
+
+export function getAllTools() {
+  const tools = []
+  for (const category of toolCategories) {
+    for (const tool of category.tools) {
+      tools.push({ ...tool, category: category.id, categoryColor: category.color })
+    }
+  }
+  return tools
+}
+
+export function getToolById(id) {
+  for (const category of toolCategories) {
+    for (const tool of category.tools) {
+      if (tool.id === id) {
+        return { ...tool, category: { id: category.id, name: category.name, color: category.color }, categoryColor: category.color }
+      }
+    }
+  }
+  return null
+}

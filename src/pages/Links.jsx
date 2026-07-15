@@ -94,11 +94,9 @@ function Links() {
           }}
         >
           {friendLinks.map((link, i) => (
-            <motion.a
+            <motion.div
               key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => window.open(link.url, '_blank', 'noopener,noreferrer')}
               variants={itemVariants}
               whileTap={{ scale: 0.98 }}
               style={{
@@ -109,6 +107,7 @@ function Links() {
                 border: `1px solid ${theme.border}`,
                 textDecoration: 'none',
                 transition: 'background 0.15s',
+                cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = theme.bgTertiary
@@ -176,7 +175,7 @@ function Links() {
                   </p>
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </motion.div>
       </div>

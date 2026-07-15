@@ -807,10 +807,8 @@ function Layout() {
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.05 }} style={{ position: 'relative' }}>
-              <a
-                href="https://github.com/nuyue/MoonShadow"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => window.open('https://github.com/nuyue/MoonShadow', '_blank', 'noopener,noreferrer')}
                 style={{
                   width: '36px',
                   height: '36px',
@@ -823,7 +821,6 @@ function Layout() {
                   color: theme.textSecondary,
                   cursor: 'pointer',
                   transition: 'background 0.15s, color 0.15s',
-                  textDecoration: 'none',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = theme.bgHover
@@ -835,7 +832,7 @@ function Layout() {
                 }}
               >
                 <Github size={18} strokeWidth={1.5} />
-              </a>
+              </button>
               <div style={{
                 position: 'absolute',
                 left: '44px',

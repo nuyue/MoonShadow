@@ -3,8 +3,8 @@ import { ThemeProvider } from './context/ThemeContext'
 import { LanguageProvider } from './context/LanguageContext'
 import Layout from './components/Layout'
 import Home from './pages/Home'
-import Posts from './pages/Posts'
-import Post from './pages/Post'
+import Articles from './pages/Articles'
+import Article from './pages/Article'
 import About from './pages/About'
 import Links from './pages/Links'
 import Tools from './pages/Tools'
@@ -19,8 +19,8 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
-              <Route path="/articles" element={<Posts />} />
-              <Route path="/articles/:slug" element={<Post />} />
+              <Route path="/articles" element={<Articles />} />
+              <Route path="/articles/:slug" element={<Article />} />
               <Route path="/links" element={<Links />} />
               <Route path="/tools" element={<Tools />} />
               <Route path="/tools/:id" element={<ToolDetail />} />

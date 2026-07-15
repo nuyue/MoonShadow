@@ -8,7 +8,7 @@ import hljs from 'highlight.js'
 // 从虚拟模块导入文章数据
 import { posts } from 'virtual:posts-data'
 
-function Post() {
+function Article() {
   const { slug } = useParams()
   const navigate = useNavigate()
   const { theme, radius, font } = useTheme()
@@ -681,4 +681,4 @@ function Post() {
   )
 }
 
-export default Post
+export default Article

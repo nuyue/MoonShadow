@@ -10,7 +10,7 @@ import { posts, categories, tags } from 'virtual:posts-data'
 
 const POSTS_PER_PAGE = 5
 
-function Posts() {
+function Articles() {
   const { theme, radius, font } = useTheme()
   const { lang, t } = useLang()
   const navigate = useNavigate()
@@ -713,4 +713,4 @@ function Posts() {
   )
 }
 
-export default Posts
+export default Articles

@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ChevronRight, Home, FileText, Wrench, Link2, Info } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
@@ -22,6 +22,7 @@ function Breadcrumb({ isMobile = false }) {
   const { theme, radius, font } = useTheme()
   const { lang } = useLang()
   const location = useLocation()
+  const navigate = useNavigate()
 
   // 解析路径生成面包屑
   const getBreadcrumbs = () => {
@@ -128,8 +129,8 @@ function Breadcrumb({ isMobile = false }) {
 
             {/* 面包屑项 - 顶级页面或非最后一项用链接样式 */}
             {(isTopLevel || !isLast) ? (
-              <Link
-                to={item.path}
+              <button
+                onClick={() => navigate(item.path)}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -142,6 +143,9 @@ function Breadcrumb({ isMobile = false }) {
                   borderRadius: radius.xs,
                   transition: 'all 0.15s',
                   flexShrink: 0,
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = theme.bgTertiary
@@ -154,7 +158,7 @@ function Breadcrumb({ isMobile = false }) {
               >
                 {Icon && <Icon size={isMobile ? 16 : 12} strokeWidth={1.5} />}
                 <span>{item.label}</span>
-              </Link>
+              </button>
             ) : (
               <span
                 style={{

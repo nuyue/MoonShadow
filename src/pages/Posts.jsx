@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useTheme, RADIUS, FONT } from '../context/ThemeContext'
 import { useLang } from '../context/LanguageContext'
@@ -13,6 +13,7 @@ const POSTS_PER_PAGE = 5
 function Posts() {
   const { theme, radius, font } = useTheme()
   const { lang, t } = useLang()
+  const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [isMobile, setIsMobile] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -495,12 +496,17 @@ function Posts() {
                   e.currentTarget.style.background = theme.bgSecondary
                 }}
               >
-                <Link
-                  to={`/articles/${post.slug}?${searchParams.toString()}`}
+                <button
+                  onClick={() => navigate(`/articles/${post.slug}?${searchParams.toString()}`)}
                   style={{
                     display: 'block',
+                    width: '100%',
                     padding: isMobile ? '16px' : '20px',
                     textDecoration: 'none',
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
                   }}
                 >
                   {/* Title */}
@@ -580,7 +586,7 @@ function Posts() {
                       </span>
                     ))}
                   </div>
-                </Link>
+                </button>
               </motion.article>
             ))
           )}

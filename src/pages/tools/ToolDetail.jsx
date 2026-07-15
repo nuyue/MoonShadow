@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { getToolById } from '../../utils/tools'
@@ -39,8 +39,8 @@ export default function ToolDetail() {
           <p style={{ color: theme.textMuted, fontFamily: font.ui, marginBottom: '24px' }}>
             {lang === 'zh' ? '工具未找到' : 'Tool not found'}
           </p>
-          <Link
-            to="/tools"
+          <button
+            onClick={() => navigate('/tools')}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -54,6 +54,7 @@ export default function ToolDetail() {
               textDecoration: 'none',
               border: `1px solid ${theme.border}`,
               transition: 'all 0.15s ease',
+              cursor: 'pointer',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = theme.bgTertiary
@@ -65,7 +66,7 @@ export default function ToolDetail() {
             }}
           >
             {lang === 'zh' ? '返回工具列表' : 'Back to tools'}
-          </Link>
+          </button>
         </div>
       </div>
     )

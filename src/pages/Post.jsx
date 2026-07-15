@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 import { useTheme, RADIUS, FONT } from '../context/ThemeContext'
@@ -10,6 +10,7 @@ import { posts } from 'virtual:posts-data'
 
 function Post() {
   const { slug } = useParams()
+  const navigate = useNavigate()
   const { theme, radius, font } = useTheme()
   const { lang, t } = useLang()
   const [isMobile, setIsMobile] = useState(false)
@@ -223,8 +224,8 @@ function Post() {
           <p style={{ color: theme.textMuted, fontFamily: font.ui, marginBottom: '24px' }}>
             {lang === 'zh' ? '文章未找到' : 'Post not found'}
           </p>
-          <Link
-            to="/articles"
+          <button
+            onClick={() => navigate('/articles')}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -238,6 +239,7 @@ function Post() {
               textDecoration: 'none',
               border: `1px solid ${theme.border}`,
               transition: 'all 0.15s ease',
+              cursor: 'pointer',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = theme.bgTertiary
@@ -249,7 +251,7 @@ function Post() {
             }}
           >
             {lang === 'zh' ? '返回文章列表' : 'Back to posts'}
-          </Link>
+          </button>
         </div>
       </div>
     )
@@ -363,9 +365,9 @@ function Post() {
             {post.tags.length > 0 && (
               <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                 {post.tags.map(tag => (
-                  <Link
+                  <button
                     key={tag}
-                    to={`/articles?tag=${tag.toLowerCase()}`}
+                    onClick={() => navigate(`/articles?tag=${tag.toLowerCase()}`)}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -378,6 +380,7 @@ function Post() {
                       border: `1px solid ${theme.border}`,
                       textDecoration: 'none',
                       transition: 'all 0.15s ease',
+                      cursor: 'pointer',
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.background = theme.bgTertiary
@@ -391,7 +394,7 @@ function Post() {
                     }}
                   >
                     {tag}
-                  </Link>
+                  </button>
                 ))}
               </div>
             )}
@@ -422,8 +425,9 @@ function Post() {
             gap: '16px',
           }}>
             {/* Prev */}
-            <Link
-              to={prevPost ? `/articles/${prevPost.slug}` : '#'}
+            <button
+              onClick={() => prevPost && navigate(`/articles/${prevPost.slug}`)}
+              disabled={!prevPost}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -488,7 +492,7 @@ function Post() {
                   {prevPost ? getTitle(prevPost) : (lang === 'zh' ? '没有更多' : 'No more')}
                 </div>
               </div>
-            </Link>
+            </button>
 
             {/* Divider */}
             <div style={{
@@ -498,8 +502,9 @@ function Post() {
             }} />
 
             {/* Next */}
-            <Link
-              to={nextPost ? `/articles/${nextPost.slug}` : '#'}
+            <button
+              onClick={() => nextPost && navigate(`/articles/${nextPost.slug}`)}
+              disabled={!nextPost}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -566,7 +571,7 @@ function Post() {
                   <path d="M9 18l6-6-6-6"/>
                 </svg>
               </div>
-            </Link>
+            </button>
           </div>
         </nav>
       </article>

@@ -1,4 +1,4 @@
-import { Outlet, useLocation, Link, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Home, FileText, Info, Link2, Github, Menu, X, Sun, Moon, Languages, Wrench, Music, Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Repeat, Repeat1, Shuffle } from 'lucide-react'
@@ -534,10 +534,9 @@ function Layout() {
               {NAV_ITEMS.map(({ path, icon: Icon, label }) => {
                 const isActive = location.pathname === path
                 return (
-                  <Link
+                  <button
                     key={path}
-                    to={path}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => { navigate(path); setMenuOpen(false) }}
                     style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -549,11 +548,14 @@ function Layout() {
                       textDecoration: 'none',
                       fontSize: '14px',
                       fontWeight: isActive ? 500 : 400,
+                      border: 'none',
+                      cursor: 'pointer',
+                      textAlign: 'left',
                     }}
                   >
                     <Icon size={18} strokeWidth={1.5} />
                     <span>{label}</span>
-                  </Link>
+                  </button>
                 )
               })}
               
@@ -603,9 +605,9 @@ function Layout() {
         }}>
           {/* Logo */}
           <div style={{ padding: '4px', marginBottom: '16px' }}>
-            <Link to="/">
+            <button onClick={() => navigate('/')} style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}>
               <img src="/favicon.ico" alt="怒月" style={{ width: '28px', height: '28px', borderRadius: '4px' }} />
-            </Link>
+            </button>
           </div>
           
           {/* Navigation */}

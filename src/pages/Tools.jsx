@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useTheme, FONT } from '../context/ThemeContext'
 import { useLang } from '../context/LanguageContext'
@@ -9,6 +9,7 @@ import { toolCategories, getAllTools } from '../utils/tools'
 function Tools() {
   const { theme, radius, font } = useTheme()
   const { lang } = useLang()
+  const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const [isMobile, setIsMobile] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -338,14 +339,19 @@ function Tools() {
                   e.currentTarget.style.background = theme.bgSecondary
                 }}
               >
-                <Link
-                  to={`/tools/${tool.id}`}
+                <button
+                  onClick={() => navigate(`/tools/${tool.id}`)}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '12px',
                     padding: isMobile ? '14px' : '16px',
                     textDecoration: 'none',
+                    width: '100%',
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
                   }}
                 >
                   {/* Icon */}
@@ -399,7 +405,7 @@ function Tools() {
                   >
                     <path d="M9 18l6-6-6-6" strokeLinecap="round"/>
                   </svg>
-                </Link>
+                </button>
               </motion.article>
             ))
           )}

@@ -2,12 +2,13 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { useTheme, RADIUS, FONT } from '../context/ThemeContext'
 import { useLang } from '../context/LanguageContext'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight, FileText, Code2, User } from 'lucide-react'
 
 function Home() {
   const { theme, radius, font } = useTheme()
   const { lang, t } = useLang()
+  const navigate = useNavigate()
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -114,69 +115,65 @@ function Home() {
           }}
         >
           {features.map((feature, i) => (
-            <Link
+            <motion.div
               key={feature.link}
-              to={feature.link}
-              style={{ textDecoration: 'none' }}
+              onClick={() => navigate(feature.link)}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 + i * 0.1, type: 'tween', duration: 0.3 }}
+              whileTap={{ scale: 0.98 }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                padding: '12px 16px',
+                background: theme.bgSecondary,
+                borderRadius: radius.md,
+                border: `1px solid ${theme.border}`,
+                cursor: 'pointer',
+                transition: 'background 0.15s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = theme.bgTertiary
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = theme.bgSecondary
+              }}
             >
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 + i * 0.1, type: 'tween', duration: 0.3 }}
-                whileTap={{ scale: 0.98 }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '12px 16px',
-                  background: theme.bgSecondary,
-                  borderRadius: radius.md,
-                  border: `1px solid ${theme.border}`,
-                  cursor: 'pointer',
-                  transition: 'background 0.15s',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = theme.bgTertiary
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = theme.bgSecondary
-                }}
-              >
-                {/* Icon */}
+              {/* Icon */}
+              <div style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: radius.sm,
+                background: theme.bgTertiary,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+                <feature.icon size={16} strokeWidth={1.5} color={theme.textSecondary} />
+              </div>
+
+              {/* Content */}
+              <div style={{ flex: 1 }}>
                 <div style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: radius.sm,
-                  background: theme.bgTertiary,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  color: theme.textPrimary,
                 }}>
-                  <feature.icon size={16} strokeWidth={1.5} color={theme.textSecondary} />
+                  {feature.title}
                 </div>
-
-                {/* Content */}
-                <div style={{ flex: 1 }}>
-                  <div style={{
-                    fontSize: '14px',
-                    fontWeight: 500,
-                    color: theme.textPrimary,
-                  }}>
-                    {feature.title}
-                  </div>
-                  <div style={{
-                    fontSize: '11px',
-                    color: theme.textMuted,
-                    fontFamily: font.mono,
-                  }}>
-                    {feature.desc}
-                  </div>
+                <div style={{
+                  fontSize: '11px',
+                  color: theme.textMuted,
+                  fontFamily: font.mono,
+                }}>
+                  {feature.desc}
                 </div>
+              </div>
 
-                {/* Arrow */}
-                <ArrowRight size={14} color={theme.textMuted} />
-              </motion.div>
-            </Link>
+              {/* Arrow */}
+              <ArrowRight size={14} color={theme.textMuted} />
+            </motion.div>
           ))}
         </motion.div>
       </div>

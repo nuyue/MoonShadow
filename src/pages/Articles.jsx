@@ -565,6 +565,7 @@ function Articles() {
                         color: theme.textSecondary,
                         borderRadius: '4px',
                         fontSize: '10px',
+                        fontFamily: font.ui,
                       }}>
                         {(() => {
                           const cat = post.categories[0]
@@ -590,6 +591,7 @@ function Articles() {
                           color: theme.textSecondary,
                           borderRadius: '4px',
                           fontSize: '10px',
+                          fontFamily: font.ui,
                         }}
                       >
                         {tag}

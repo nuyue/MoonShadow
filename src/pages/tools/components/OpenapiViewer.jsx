@@ -193,7 +193,7 @@ const OpenapiViewer = () => {
     border: `1px solid ${theme.border}`,
     borderRadius: radius.md,
     color: theme.textPrimary,
-    fontFamily: font.mono,
+    fontFamily: font.ui,
     fontSize: '13px',
     resize: 'vertical',
     outline: 'none',
@@ -335,7 +335,7 @@ const OpenapiViewer = () => {
                     }}>
                       {ep.method}
                     </span>
-                    <span style={{ flex: 1, fontSize: '13px', fontFamily: font.mono, color: theme.textPrimary }}>
+                    <span style={{ flex: 1, fontSize: '13px', fontFamily: font.ui, color: theme.textPrimary }}>
                       {ep.path}
                     </span>
                     {ep.op?.summary && (
@@ -360,7 +360,7 @@ const OpenapiViewer = () => {
                           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                             {ep.op.parameters.map((p, j) => (
                               <div key={j} style={{ display: 'flex', gap: '8px', fontSize: '11px' }}>
-                                <span style={{ fontFamily: font.mono, color: theme.textPrimary }}>{p.name}</span>
+                                <span style={{ fontFamily: font.ui, color: theme.textPrimary }}>{p.name}</span>
                                 <span style={{ padding: '1px 6px', background: theme.bgTertiary, borderRadius: radius.sm, color: theme.textMuted }}>{p.in}</span>
                                 {p.schema?.type && <span style={{ color: '#3b82f6' }}>{p.schema.type}</span>}
                                 {p.required && <span style={{ color: '#ef4444' }}>required</span>}
@@ -376,7 +376,7 @@ const OpenapiViewer = () => {
                             {Object.entries(ep.op.responses).map(([code, res]) => (
                               <div key={code} style={{ display: 'flex', gap: '8px', fontSize: '11px' }}>
                                 <span style={{
-                                  fontFamily: font.mono,
+                                  fontFamily: font.ui,
                                   fontWeight: 'bold',
                                   color: code.startsWith('2') ? '#10b981' : code.startsWith('4') ? '#f59e0b' : code.startsWith('5') ? '#ef4444' : theme.textPrimary
                                 }}>

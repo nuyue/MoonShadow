@@ -19,7 +19,7 @@ export default function CustomCheckbox({ checked, onChange, label }) {
         padding: '4px 8px',
         fontSize: '12px',
         color: theme.textSecondary,
-        fontFamily: font.mono,
+        fontFamily: font.ui,
         cursor: 'pointer',
         borderRadius: radius.sm,
         transition: 'background 0.15s',

@@ -49,7 +49,7 @@ export default function NumberInput({ value, onChange, min, max, step = 1, place
           color: (min !== undefined && value <= min) ? theme.textMuted : theme.textSecondary,
           cursor: (min !== undefined && value <= min) ? 'not-allowed' : 'pointer',
           fontSize: '14px',
-          fontFamily: font.mono,
+          fontFamily: font.ui,
           transition: 'all 0.15s',
         }}
         onMouseEnter={(e) => {
@@ -77,7 +77,7 @@ export default function NumberInput({ value, onChange, min, max, step = 1, place
           border: 'none',
           color: theme.textPrimary,
           fontSize: '12px',
-          fontFamily: font.mono,
+          fontFamily: font.ui,
           textAlign: 'center',
           outline: 'none',
           padding: '0 4px',
@@ -98,7 +98,7 @@ export default function NumberInput({ value, onChange, min, max, step = 1, place
           color: (max !== undefined && value >= max) ? theme.textMuted : theme.textSecondary,
           cursor: (max !== undefined && value >= max) ? 'not-allowed' : 'pointer',
           fontSize: '14px',
-          fontFamily: font.mono,
+          fontFamily: font.ui,
           transition: 'all 0.15s',
         }}
         onMouseEnter={(e) => {

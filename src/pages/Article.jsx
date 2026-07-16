@@ -327,7 +327,7 @@ function Article() {
                 <line x1="8" y1="2" x2="8" y2="6"/>
                 <line x1="3" y1="10" x2="21" y2="10"/>
               </svg>
-              <span style={{ fontSize: '11px', fontFamily: font.mono, color: theme.textSecondary }}>
+              <span style={{ fontSize: '11px', fontFamily: font.ui, color: theme.textSecondary }}>
                 {formatDate(post.date)}
               </span>
             </div>
@@ -405,7 +405,7 @@ function Article() {
                 <circle cx="12" cy="12" r="10"/>
                 <polyline points="12,6 12,12 16,14"/>
               </svg>
-              <span style={{ fontSize: '11px', fontFamily: font.mono, color: theme.textSecondary }}>
+              <span style={{ fontSize: '11px', fontFamily: font.ui, color: theme.textSecondary }}>
                 {lang === 'zh' ? `${getReadingTime(post)} 分钟` : `${getReadingTime(post)} min`}
               </span>
             </div>
@@ -523,7 +523,7 @@ function Article() {
               }}>
                 <div style={{
                   fontSize: '10px',
-                  fontFamily: font.mono,
+                  fontFamily: font.ui,
                   color: theme.textMuted,
                   letterSpacing: '0.03em',
                   marginBottom: '1px',
@@ -588,7 +588,7 @@ function Article() {
               }}>
                 <div style={{
                   fontSize: '10px',
-                  fontFamily: font.mono,
+                  fontFamily: font.ui,
                   color: theme.textMuted,
                   letterSpacing: '0.03em',
                   marginBottom: '1px',
@@ -666,7 +666,7 @@ function Article() {
           background: ${theme.bgTertiary};
           padding: 2px 6px;
           border-radius: 4px;
-          font-family: ${font.mono};
+          font-family: ${font.ui};
           font-size: 13px;
         }
         

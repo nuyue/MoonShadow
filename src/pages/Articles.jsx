@@ -330,7 +330,7 @@ function Articles() {
                 <div style={{
                   marginBottom: '10px',
                   fontSize: '12px',
-                  fontFamily: font.mono,
+                  fontFamily: font.ui,
                   color: theme.textMuted,
                 }}>
                   {lang === 'zh' ? '按分类筛选' : 'Filter by category'}
@@ -403,7 +403,7 @@ function Articles() {
                 <div style={{
                   marginBottom: '10px',
                   fontSize: '12px',
-                  fontFamily: font.mono,
+                  fontFamily: font.ui,
                   color: theme.textMuted,
                 }}>
                   {lang === 'zh' ? '按标签筛选' : 'Filter by tag'}
@@ -469,7 +469,7 @@ function Articles() {
                 color: theme.textMuted,
               }}
             >
-              <p style={{ fontFamily: font.mono }}>
+              <p style={{ fontFamily: font.ui }}>
                 {lang === 'zh' ? '没有找到文章' : 'No posts found'}
               </p>
             </motion.div>
@@ -550,7 +550,7 @@ function Articles() {
                     alignItems: 'center',
                     gap: '12px',
                     fontSize: '12px',
-                    fontFamily: font.mono,
+                    fontFamily: font.ui,
                   }}>
                     {/* Date */}
                     <span style={{ color: theme.textMuted }}>
@@ -637,7 +637,7 @@ function Articles() {
                 color: currentPage === 1 ? theme.textMuted : theme.textPrimary,
                 cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
                 fontSize: '11px',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
                 transition: 'background 0.15s',
               }}
               onMouseEnter={(e) => {
@@ -672,7 +672,7 @@ function Articles() {
                     color: page === currentPage ? theme.textPrimary : theme.textSecondary,
                     cursor: 'pointer',
                     fontSize: '11px',
-                    fontFamily: font.mono,
+                    fontFamily: font.ui,
                     transition: 'background 0.15s',
                   }}
                   onMouseEnter={(e) => {
@@ -703,7 +703,7 @@ function Articles() {
                 color: currentPage === totalPages ? theme.textMuted : theme.textPrimary,
                 cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
                 fontSize: '11px',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
                 transition: 'background 0.15s',
               }}
               onMouseEnter={(e) => {

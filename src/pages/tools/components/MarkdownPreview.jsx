@@ -123,7 +123,7 @@ ${html}
     background: theme.bgSecondary,
     border: `1px solid ${theme.border}`,
     borderRadius: radius.md,
-    fontFamily: font.mono,
+    fontFamily: font.ui,
     fontSize: '13px',
     resize: 'none',
     boxSizing: 'border-box',
@@ -183,7 +183,7 @@ ${html}
               .md-preview p { margin-bottom: 1em; line-height: 1.6; color: ${theme.textPrimary}; }
               .md-preview ul, .md-preview ol { margin-bottom: 1em; padding-left: 2em; color: ${theme.textPrimary}; }
               .md-preview li { margin-bottom: 0.25em; color: ${theme.textPrimary}; }
-              .md-preview code { background: ${theme.bgTertiary}; padding: 0.2em 0.4em; border-radius: ${radius.xs}; font-family: ${font.mono}; font-size: 0.9em; color: ${theme.textPrimary}; }
+              .md-preview code { background: ${theme.bgTertiary}; padding: 0.2em 0.4em; border-radius: ${radius.xs}; font-family: ${font.ui}; font-size: 0.9em; color: ${theme.textPrimary}; }
               .md-preview pre { background: ${theme.bgSecondary}; padding: 1em; border-radius: ${radius.md}; overflow-x: auto; margin-bottom: 1em; }
               .md-preview pre code { background: transparent; padding: 0; }
               .md-preview blockquote { border-left: 4px solid ${theme.border}; margin: 0 0 1em 0; padding-left: 1em; color: ${theme.textSecondary}; font-style: italic; }

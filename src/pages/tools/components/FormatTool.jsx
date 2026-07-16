@@ -215,7 +215,7 @@ export default function FormatTool() {
     },
     inputLabel: {
       fontSize: '11px',
-      fontFamily: font.mono,
+      fontFamily: font.ui,
       color: theme.textMuted,
       marginBottom: '6px',
     },
@@ -226,7 +226,7 @@ export default function FormatTool() {
       border: `1px solid ${theme.border}`,
       borderRadius: radius.md,
       color: theme.textPrimary,
-      fontFamily: font.mono,
+      fontFamily: font.ui,
       fontSize: '13px',
       lineHeight: 1.6,
       resize: 'vertical',
@@ -241,7 +241,7 @@ export default function FormatTool() {
       border: `1px solid ${theme.border}`,
       borderRadius: radius.md,
       color: theme.textPrimary,
-      fontFamily: font.mono,
+      fontFamily: font.ui,
       fontSize: '13px',
       lineHeight: 1.6,
       resize: 'none',
@@ -268,7 +268,7 @@ export default function FormatTool() {
       borderRadius: radius.sm,
       color: '#EF4444',
       fontSize: '12px',
-      fontFamily: font.mono,
+      fontFamily: font.ui,
     },
   }
 
@@ -297,7 +297,7 @@ export default function FormatTool() {
         />
         {['json', 'js', 'xml'].includes(activeTool) && mode === 'format' && (
           <>
-            <span style={{ fontSize: '12px', color: theme.textSecondary, fontFamily: font.mono }}>
+            <span style={{ fontSize: '12px', color: theme.textSecondary, fontFamily: font.ui }}>
               {lang === 'zh' ? '缩进:' : 'Indent:'}
             </span>
             <NumberInput
@@ -340,7 +340,7 @@ export default function FormatTool() {
                 color: theme.textSecondary,
                 cursor: 'pointer',
                 fontSize: '11px',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
               }}>
                 {lang === 'zh' ? '复制' : 'Copy'}
               </button>

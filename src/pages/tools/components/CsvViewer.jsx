@@ -164,7 +164,7 @@ const CsvViewer = () => {
               padding: '12px', 
               border: '1px solid #ddd', 
               borderRadius: '4px', 
-              fontFamily: 'monospace', 
+              fontFamily: font.ui, 
               fontSize: '13px', 
               resize: 'none',
               boxSizing: 'border-box'

@@ -52,7 +52,7 @@ const DateCalc = () => {
     border: `1px solid ${theme.border}`,
     borderRadius: radius.md,
     fontSize: '14px',
-    fontFamily: font.mono,
+    fontFamily: font.ui,
     outline: 'none',
     transition: 'border-color 0.15s, background 0.15s',
   }
@@ -207,7 +207,7 @@ const DateCalc = () => {
                   <div style={{ fontSize: '11px', fontWeight: 500, color: theme.textMuted, textTransform: 'uppercase', marginBottom: '4px', fontFamily: font.ui }}>
                     {item.label}
                   </div>
-                  <div style={{ fontSize: '24px', fontWeight: 600, color: theme.textPrimary, fontFamily: font.mono }}>
+                  <div style={{ fontSize: '24px', fontWeight: 600, color: theme.textPrimary, fontFamily: font.ui }}>
                     {item.value}
                   </div>
                 </div>
@@ -273,7 +273,7 @@ const DateCalc = () => {
               <div style={{ fontSize: '11px', fontWeight: 500, color: theme.textMuted, textTransform: 'uppercase', marginBottom: '4px', fontFamily: font.ui }}>
                 结果日期
               </div>
-              <div style={{ fontSize: '18px', fontWeight: 600, color: theme.textPrimary, fontFamily: font.mono }}>
+              <div style={{ fontSize: '18px', fontWeight: 600, color: theme.textPrimary, fontFamily: font.ui }}>
                 {addResult.toLocaleDateString('zh-CN', {
                   year: 'numeric',
                   month: 'long',

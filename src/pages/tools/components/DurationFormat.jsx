@@ -144,7 +144,7 @@ const DurationFormat = () => {
             border: `1px solid ${theme.border}`,
             borderRadius: radius.md,
             fontSize: '14px',
-            fontFamily: font.mono,
+            fontFamily: font.ui,
             outline: 'none',
             transition: 'border-color 0.15s, background 0.15s',
           }}
@@ -184,11 +184,11 @@ const DurationFormat = () => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginTop: '16px' }}>
         <div style={{ padding: '12px', background: theme.bgSecondary, border: `1px solid ${theme.border}`, borderRadius: radius.md }}>
           <div style={{ fontSize: '11px', fontWeight: 500, color: theme.textMuted, textTransform: 'uppercase', marginBottom: '4px', fontFamily: font.ui }}>格式化 (HH:MM:SS)</div>
-          <div style={{ fontSize: '18px', fontWeight: 600, color: theme.textPrimary, fontFamily: font.mono }}>{formatDuration(seconds)}</div>
+          <div style={{ fontSize: '18px', fontWeight: 600, color: theme.textPrimary, fontFamily: font.ui }}>{formatDuration(seconds)}</div>
         </div>
         <div style={{ padding: '12px', background: theme.bgSecondary, border: `1px solid ${theme.border}`, borderRadius: radius.md }}>
           <div style={{ fontSize: '11px', fontWeight: 500, color: theme.textMuted, textTransform: 'uppercase', marginBottom: '4px', fontFamily: font.ui }}>人性化</div>
-          <div style={{ fontSize: '18px', fontWeight: 600, color: theme.textPrimary, fontFamily: font.mono }}>{humanizeDuration(seconds)}</div>
+          <div style={{ fontSize: '18px', fontWeight: 600, color: theme.textPrimary, fontFamily: font.ui }}>{humanizeDuration(seconds)}</div>
         </div>
       </div>
 
@@ -198,19 +198,19 @@ const DurationFormat = () => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '13px' }}>
             <span style={{ color: theme.textSecondary, fontFamily: font.ui }}>1 分钟</span>
-            <span style={{ color: theme.textPrimary, fontFamily: font.mono }}>60 秒</span>
+            <span style={{ color: theme.textPrimary, fontFamily: font.ui }}>60 秒</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '13px' }}>
             <span style={{ color: theme.textSecondary, fontFamily: font.ui }}>1 小时</span>
-            <span style={{ color: theme.textPrimary, fontFamily: font.mono }}>3600 秒</span>
+            <span style={{ color: theme.textPrimary, fontFamily: font.ui }}>3600 秒</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '13px' }}>
             <span style={{ color: theme.textSecondary, fontFamily: font.ui }}>1 天</span>
-            <span style={{ color: theme.textPrimary, fontFamily: font.mono }}>86400 秒</span>
+            <span style={{ color: theme.textPrimary, fontFamily: font.ui }}>86400 秒</span>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', fontSize: '13px' }}>
             <span style={{ color: theme.textSecondary, fontFamily: font.ui }}>1 周</span>
-            <span style={{ color: theme.textPrimary, fontFamily: font.mono }}>604800 秒</span>
+            <span style={{ color: theme.textPrimary, fontFamily: font.ui }}>604800 秒</span>
           </div>
         </div>
       </div>

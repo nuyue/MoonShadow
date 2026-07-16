@@ -128,7 +128,7 @@ const CronParser = () => {
             border: `1px solid ${theme.border}`,
             borderRadius: radius.md,
             fontSize: '14px',
-            fontFamily: font.mono,
+            fontFamily: font.ui,
             outline: 'none',
             transition: 'border-color 0.15s, background 0.15s',
           }}
@@ -231,7 +231,7 @@ const CronParser = () => {
               ].map(field => (
                 <div key={field.name} style={{ padding: '8px', background: theme.bgTertiary, borderRadius: radius.sm }}>
                   <div style={{ fontSize: '11px', color: theme.textSecondary, marginBottom: '4px', fontFamily: font.ui }}>{field.name}</div>
-                  <div style={{ fontSize: '14px', fontWeight: 500, color: theme.textPrimary, fontFamily: font.mono }}>{field.value}</div>
+                  <div style={{ fontSize: '14px', fontWeight: 500, color: theme.textPrimary, fontFamily: font.ui }}>{field.value}</div>
                 </div>
               ))}
             </div>
@@ -249,7 +249,7 @@ const CronParser = () => {
             </div>
             <div>
               {result.nextDates.map((date, i) => (
-                <div key={i} style={{ padding: '6px 0', fontSize: '13px', fontFamily: font.mono, color: theme.textPrimary }}>
+                <div key={i} style={{ padding: '6px 0', fontSize: '13px', fontFamily: font.ui, color: theme.textPrimary }}>
                   {formatDate(date)}
                 </div>
               ))}

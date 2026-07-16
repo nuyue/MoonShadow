@@ -81,7 +81,7 @@ const Qrcode = () => {
     border: `1px solid ${theme.border}`,
     borderRadius: radius.md,
     color: theme.textPrimary,
-    fontFamily: font.mono,
+    fontFamily: font.ui,
     fontSize: '13px',
     resize: 'vertical',
     outline: 'none',
@@ -235,14 +235,14 @@ const Qrcode = () => {
                 <label style={{ fontSize: '11px', color: theme.textSecondary, marginBottom: '4px', display: 'block' }}>前景色</label>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <input type="color" value={fgColor} onChange={e => setFgColor(e.target.value)} style={{ width: '40px', height: '32px', border: 'none', borderRadius: radius.sm, cursor: 'pointer' }} />
-                  <input type="text" value={fgColor} onChange={e => setFgColor(e.target.value)} style={{ ...inputStyle, flex: 1, fontFamily: font.mono }} />
+                  <input type="text" value={fgColor} onChange={e => setFgColor(e.target.value)} style={{ ...inputStyle, flex: 1, fontFamily: font.ui }} />
                 </div>
               </div>
               <div>
                 <label style={{ fontSize: '11px', color: theme.textSecondary, marginBottom: '4px', display: 'block' }}>背景色</label>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <input type="color" value={bgColor} onChange={e => setBgColor(e.target.value)} style={{ width: '40px', height: '32px', border: 'none', borderRadius: radius.sm, cursor: 'pointer' }} />
-                  <input type="text" value={bgColor} onChange={e => setBgColor(e.target.value)} style={{ ...inputStyle, flex: 1, fontFamily: font.mono }} />
+                  <input type="text" value={bgColor} onChange={e => setBgColor(e.target.value)} style={{ ...inputStyle, flex: 1, fontFamily: font.ui }} />
                 </div>
               </div>
             </div>

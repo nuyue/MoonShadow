@@ -366,16 +366,16 @@ export default function DevTool() {
     textarea: {
       width: '100%', minHeight: '300px', padding: '12px', background: theme.bgSecondary,
       color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-      fontFamily: font.mono, fontSize: '12px', resize: 'vertical', outline: 'none',
+      fontFamily: font.ui, fontSize: '12px', resize: 'vertical', outline: 'none',
     },
     textareaOutput: {
       width: '100%', minHeight: '300px', padding: '12px', background: theme.bgTertiary,
       color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-      fontFamily: font.mono, fontSize: '12px', resize: 'vertical',
+      fontFamily: font.ui, fontSize: '12px', resize: 'vertical',
     },
     input: {
       padding: '6px 10px', background: theme.bgSecondary, color: theme.textPrimary,
-      border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, fontSize: '12px', outline: 'none',
+      border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, fontSize: '12px', outline: 'none',
     },
   }
 
@@ -454,7 +454,7 @@ export default function DevTool() {
             { value: 'minor', label: 'Minor' },
             { value: 'patch', label: 'Patch' },
           ]} />
-          <span style={{ color: theme.bgAccent, fontFamily: font.mono }}>= {output}</span>
+          <span style={{ color: theme.bgAccent, fontFamily: font.ui }}>= {output}</span>
         </div>
       )}
 

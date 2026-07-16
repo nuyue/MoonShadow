@@ -45,7 +45,7 @@ const UrlParser = () => {
       border: `1px solid ${theme.border}`,
       borderRadius: radius.md,
       color: theme.textPrimary,
-      fontFamily: font.mono,
+      fontFamily: font.ui,
       fontSize: '13px',
       outline: 'none',
       boxSizing: 'border-box',
@@ -57,7 +57,7 @@ const UrlParser = () => {
       borderRadius: radius.md,
       color: '#ef4444',
       fontSize: '13px',
-      fontFamily: font.mono,
+      fontFamily: font.ui,
       marginBottom: '12px',
     },
     resultGrid: {
@@ -79,7 +79,7 @@ const UrlParser = () => {
       fontFamily: font.ui,
     },
     resultValue: {
-      fontFamily: font.mono,
+      fontFamily: font.ui,
       fontSize: '13px',
       color: theme.textPrimary,
       wordBreak: 'break-all',

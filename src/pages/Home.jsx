@@ -165,7 +165,7 @@ function Home() {
                 <div style={{
                   fontSize: '11px',
                   color: theme.textMuted,
-                  fontFamily: font.mono,
+                  fontFamily: font.ui,
                 }}>
                   {feature.desc}
                 </div>

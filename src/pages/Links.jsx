@@ -150,7 +150,7 @@ function Links() {
                     <span style={{
                       fontSize: '15px',
                       fontWeight: 600,
-                      fontFamily: font.mono,
+                      fontFamily: font.ui,
                       color: theme.textPrimary,
                     }}>
                       {link.name}
@@ -167,7 +167,7 @@ function Links() {
                   <p style={{
                     fontSize: '13px',
                     color: theme.textMuted,
-                    fontFamily: font.mono,
+                    fontFamily: font.ui,
                     margin: 0,
                     lineHeight: 1.5,
                   }}>

@@ -90,7 +90,7 @@ const UserAgent = () => {
     border: `1px solid ${theme.border}`,
     borderRadius: radius.md,
     color: theme.textPrimary,
-    fontFamily: font.mono,
+    fontFamily: font.ui,
     fontSize: '12px',
     resize: 'vertical',
     outline: 'none',

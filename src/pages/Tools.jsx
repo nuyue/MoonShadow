@@ -216,7 +216,7 @@ function Tools() {
                 <div style={{
                   marginBottom: '10px',
                   fontSize: '12px',
-                  fontFamily: font.mono,
+                  fontFamily: font.ui,
                   color: theme.textMuted,
                 }}>
                   {lang === 'zh' ? '按分类筛选' : 'Filter by category'}
@@ -280,7 +280,7 @@ function Tools() {
         <div style={{
           marginBottom: '12px',
           fontSize: '12px',
-          fontFamily: font.mono,
+          fontFamily: font.ui,
           color: theme.textMuted,
         }}>
           {lang === 'zh' 
@@ -312,7 +312,7 @@ function Tools() {
                 <circle cx="11" cy="11" r="8"/>
                 <path d="M21 21l-4.35-4.35" strokeLinecap="round"/>
               </svg>
-              <p style={{ fontFamily: font.mono }}>
+              <p style={{ fontFamily: font.ui }}>
                 {lang === 'zh' ? '没有找到工具' : 'No tools found'}
               </p>
             </motion.div>

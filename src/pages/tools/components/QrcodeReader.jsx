@@ -344,7 +344,7 @@ const QrcodeReader = () => {
           }}>
             <p style={{
               color: theme.textPrimary,
-              fontFamily: font.mono,
+              fontFamily: font.ui,
               fontSize: '13px',
               wordBreak: 'break-all',
               whiteSpace: 'pre-wrap',

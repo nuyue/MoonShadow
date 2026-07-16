@@ -369,7 +369,7 @@ const BarcodeGen = () => {
               value={value}
               onChange={e => setValue(e.target.value)}
               placeholder={BARCODE_FORMATS[format]?.example}
-              style={{ ...inputStyle, fontSize: '16px', fontFamily: font.mono, padding: '12px' }}
+              style={{ ...inputStyle, fontSize: '16px', fontFamily: font.ui, padding: '12px' }}
             />
             <div style={{ fontSize: '11px', color: theme.textMuted, marginTop: '4px' }}>
               示例: {BARCODE_FORMATS[format]?.example}
@@ -381,14 +381,14 @@ const BarcodeGen = () => {
               <label style={{ fontSize: '11px', color: theme.textSecondary, marginBottom: '4px', display: 'block' }}>线条颜色</label>
               <div style={{ display: 'flex', gap: '8px' }}>
                 <input type="color" value={lineColor} onChange={e => setLineColor(e.target.value)} style={{ width: '40px', height: '32px', border: 'none', borderRadius: radius.sm, cursor: 'pointer' }} />
-                <input type="text" value={lineColor} onChange={e => setLineColor(e.target.value)} style={{ ...inputStyle, flex: 1, fontFamily: font.mono }} />
+                <input type="text" value={lineColor} onChange={e => setLineColor(e.target.value)} style={{ ...inputStyle, flex: 1, fontFamily: font.ui }} />
               </div>
             </div>
             <div>
               <label style={{ fontSize: '11px', color: theme.textSecondary, marginBottom: '4px', display: 'block' }}>背景颜色</label>
               <div style={{ display: 'flex', gap: '8px' }}>
                 <input type="color" value={background} onChange={e => setBackground(e.target.value)} style={{ width: '40px', height: '32px', border: 'none', borderRadius: radius.sm, cursor: 'pointer' }} />
-                <input type="text" value={background} onChange={e => setBackground(e.target.value)} style={{ ...inputStyle, flex: 1, fontFamily: font.mono }} />
+                <input type="text" value={background} onChange={e => setBackground(e.target.value)} style={{ ...inputStyle, flex: 1, fontFamily: font.ui }} />
               </div>
             </div>
           </div>

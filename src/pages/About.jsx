@@ -94,7 +94,7 @@ function About() {
                 background: theme.bgSecondary,
                 borderRadius: radius.sm,
                 fontSize: '12px',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
                 color: theme.textSecondary,
                 border: `1px solid ${theme.border}`,
                 transition: 'background 0.15s, border-color 0.15s',

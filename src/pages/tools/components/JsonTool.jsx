@@ -80,7 +80,7 @@ function JsonSchemaGenPanel() {
   const textareaStyle = {
     width: '100%', minHeight: '200px', padding: '12px', background: theme.bgSecondary,
     color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-    fontFamily: font.mono, fontSize: '12px', resize: 'vertical', outline: 'none',
+    fontFamily: font.ui, fontSize: '12px', resize: 'vertical', outline: 'none',
   }
 
   return (
@@ -157,7 +157,7 @@ function JsonSchemaVerifyPanel() {
   const textareaStyle = {
     width: '100%', minHeight: '150px', padding: '12px', background: theme.bgSecondary,
     color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-    fontFamily: font.mono, fontSize: '12px', resize: 'vertical', outline: 'none',
+    fontFamily: font.ui, fontSize: '12px', resize: 'vertical', outline: 'none',
   }
 
   return (
@@ -228,14 +228,14 @@ function JsonPathPanel() {
   const textareaStyle = {
     width: '100%', minHeight: '150px', padding: '12px', background: theme.bgSecondary,
     color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-    fontFamily: font.mono, fontSize: '12px', resize: 'vertical', outline: 'none',
+    fontFamily: font.ui, fontSize: '12px', resize: 'vertical', outline: 'none',
   }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
       <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
         <span style={{ fontSize: '12px', color: theme.textMuted }}>JSONPath:</span>
-        <input type="text" value={path} onChange={e => setPath(e.target.value)} placeholder="$" style={{ flex: 1, padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, background: theme.bgSecondary, color: theme.textPrimary }} />
+        <input type="text" value={path} onChange={e => setPath(e.target.value)} placeholder="$" style={{ flex: 1, padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, background: theme.bgSecondary, color: theme.textPrimary }} />
         <button onClick={execute} style={{ padding: '8px 16px', background: theme.bgAccent, color: theme.bgPrimary, border: 'none', borderRadius: radius.sm, cursor: 'pointer' }}>{lang === 'zh' ? '查询' : 'Query'}</button>
       </div>
 
@@ -285,7 +285,7 @@ function JsonMergePanel() {
   const textareaStyle = {
     width: '100%', minHeight: '120px', padding: '12px', background: theme.bgSecondary,
     color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-    fontFamily: font.mono, fontSize: '12px', resize: 'vertical', outline: 'none',
+    fontFamily: font.ui, fontSize: '12px', resize: 'vertical', outline: 'none',
   }
 
   return (
@@ -338,7 +338,7 @@ function JsonToCsvPanel() {
   const textareaStyle = {
     width: '100%', minHeight: '150px', padding: '12px', background: theme.bgSecondary,
     color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-    fontFamily: font.mono, fontSize: '12px', resize: 'vertical', outline: 'none',
+    fontFamily: font.ui, fontSize: '12px', resize: 'vertical', outline: 'none',
   }
 
   return (
@@ -408,13 +408,13 @@ function JsonToTypePanel() {
   const textareaStyle = {
     width: '100%', minHeight: '150px', padding: '12px', background: theme.bgSecondary,
     color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-    fontFamily: font.mono, fontSize: '12px', resize: 'vertical', outline: 'none',
+    fontFamily: font.ui, fontSize: '12px', resize: 'vertical', outline: 'none',
   }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
       <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-        <input type="text" value={typeName} onChange={e => setTypeName(e.target.value)} placeholder="TypeName" style={{ padding: '6px 12px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, background: theme.bgSecondary, color: theme.textPrimary }} />
+        <input type="text" value={typeName} onChange={e => setTypeName(e.target.value)} placeholder="TypeName" style={{ padding: '6px 12px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, background: theme.bgSecondary, color: theme.textPrimary }} />
         <CustomSelect value={langType} onChange={setLangType} options={[{ value: 'typescript', label: 'TypeScript' }, { value: 'go', label: 'Go' }]} />
         <button onClick={convert} style={{ padding: '6px 12px', background: theme.bgAccent, color: theme.bgPrimary, border: 'none', borderRadius: radius.sm, cursor: 'pointer' }}>{lang === 'zh' ? '转换' : 'Convert'}</button>
       </div>

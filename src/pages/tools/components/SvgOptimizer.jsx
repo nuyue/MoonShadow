@@ -188,7 +188,7 @@ const SvgOptimizer = () => {
     border: `1px solid ${theme.border}`,
     borderRadius: radius.md,
     color: theme.textPrimary,
-    fontFamily: font.mono,
+    fontFamily: font.ui,
     fontSize: '12px',
     resize: 'vertical',
     outline: 'none',
@@ -271,7 +271,7 @@ const SvgOptimizer = () => {
               <div style={{
                 fontSize: '18px',
                 fontWeight: 'bold',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
                 color: highlight ? theme.bgAccent : theme.textPrimary,
               }}>{value}</div>
               <div style={{ fontSize: '11px', color: theme.textMuted }}>{label}</div>

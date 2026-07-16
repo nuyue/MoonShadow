@@ -45,7 +45,7 @@ function PageHeader({ title, subtitle, actions }) {
               <span style={{
                 color: theme.textMuted,
                 fontSize: '13px',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
               }}>
                 {subtitle}
               </span>

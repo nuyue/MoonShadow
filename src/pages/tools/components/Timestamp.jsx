@@ -42,7 +42,7 @@ const Timestamp = () => {
             border: `1px solid ${theme.border}`,
             borderRadius: radius.md,
             fontSize: '14px',
-            fontFamily: font.mono,
+            fontFamily: font.ui,
             outline: 'none',
             transition: 'border-color 0.15s, background 0.15s',
           }}
@@ -79,7 +79,7 @@ const Timestamp = () => {
           border: `1px solid ${theme.border}`,
         }}>
           <div style={{ fontWeight: 500, marginBottom: '8px', color: theme.textPrimary, fontFamily: font.ui }}>转换结果</div>
-          <div style={{ fontSize: '16px', color: theme.textPrimary, fontFamily: font.mono }}>{date}</div>
+          <div style={{ fontSize: '16px', color: theme.textPrimary, fontFamily: font.ui }}>{date}</div>
         </div>
       )}
     </div>

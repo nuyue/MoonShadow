@@ -223,16 +223,16 @@ export default function NumberTool() {
     toolbar: { display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' },
     input: {
       flex: 1, padding: '8px 12px', background: theme.bgSecondary, color: theme.textPrimary,
-      border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, fontSize: '13px', outline: 'none',
+      border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, fontSize: '13px', outline: 'none',
     },
     grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '12px' },
     card: {
       background: theme.bgSecondary, padding: '12px', borderRadius: radius.md,
       border: `1px solid ${theme.border}`, textAlign: 'center',
     },
-    label: { fontSize: '11px', color: theme.textMuted, fontFamily: font.mono },
-    value: { fontSize: '16px', color: theme.textPrimary, fontFamily: font.mono, marginTop: '4px', wordBreak: 'break-all' },
-    error: { padding: '8px 12px', background: '#FEE2E2', borderRadius: radius.sm, color: '#DC2626', fontFamily: font.mono, fontSize: '12px' },
+    label: { fontSize: '11px', color: theme.textMuted, fontFamily: font.ui },
+    value: { fontSize: '16px', color: theme.textPrimary, fontFamily: font.ui, marginTop: '4px', wordBreak: 'break-all' },
+    error: { padding: '8px 12px', background: '#FEE2E2', borderRadius: radius.sm, color: '#DC2626', fontFamily: font.ui, fontSize: '12px' },
   }
 
   const toolOptions = [
@@ -372,7 +372,7 @@ export default function NumberTool() {
             <div style={styles.grid}>
               <div style={styles.card}>
                 <div style={styles.label}>Hex</div>
-                <div style={{ ...styles.value, fontFamily: font.mono, fontSize: '12px' }}>{output.hex}</div>
+                <div style={{ ...styles.value, fontFamily: font.ui, fontSize: '12px' }}>{output.hex}</div>
               </div>
               <div style={styles.card}>
                 <div style={styles.label}>Sign</div>
@@ -384,11 +384,11 @@ export default function NumberTool() {
               </div>
               <div style={{ ...styles.card, gridColumn: 'span 2' }}>
                 <div style={styles.label}>Mantissa</div>
-                <div style={{ ...styles.value, fontFamily: font.mono, fontSize: '10px', wordBreak: 'break-all' }}>{output.mantissa}</div>
+                <div style={{ ...styles.value, fontFamily: font.ui, fontSize: '10px', wordBreak: 'break-all' }}>{output.mantissa}</div>
               </div>
               <div style={{ ...styles.card, gridColumn: 'span 2' }}>
                 <div style={styles.label}>Binary (64-bit)</div>
-                <div style={{ ...styles.value, fontFamily: font.mono, fontSize: '10px', wordBreak: 'break-all' }}>{output.binary}</div>
+                <div style={{ ...styles.value, fontFamily: font.ui, fontSize: '10px', wordBreak: 'break-all' }}>{output.binary}</div>
               </div>
             </div>
           )}

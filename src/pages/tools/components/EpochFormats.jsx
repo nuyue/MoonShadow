@@ -188,7 +188,7 @@ const EpochFormats = () => {
               border: `1px solid ${theme.border}`,
               borderRadius: radius.md,
               fontSize: '14px',
-              fontFamily: font.mono,
+              fontFamily: font.ui,
               outline: 'none',
               transition: 'border-color 0.15s, background 0.15s',
             }}
@@ -217,7 +217,7 @@ const EpochFormats = () => {
               border: `1px solid ${theme.border}`,
               borderRadius: radius.md,
               fontSize: '14px',
-              fontFamily: font.mono,
+              fontFamily: font.ui,
               outline: 'none',
               transition: 'border-color 0.15s, background 0.15s',
             }}
@@ -262,7 +262,7 @@ const EpochFormats = () => {
                 {copied === format.label ? '✓' : '复制'}
               </button>
             </div>
-            <div style={{ fontSize: '14px', fontWeight: 500, color: theme.textPrimary, fontFamily: font.mono, wordBreak: 'break-all' }}>
+            <div style={{ fontSize: '14px', fontWeight: 500, color: theme.textPrimary, fontFamily: font.ui, wordBreak: 'break-all' }}>
               {format.value}
             </div>
             <div style={{ fontSize: '11px', color: theme.textMuted, marginTop: '4px', fontFamily: font.ui }}>

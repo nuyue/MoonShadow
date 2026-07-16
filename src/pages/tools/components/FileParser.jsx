@@ -824,7 +824,7 @@ export default function FileParser() {
               textAlign: 'center',
               color: theme.bgAccent,
               cursor: 'pointer',
-              fontFamily: font.mono,
+              fontFamily: font.ui,
               fontSize: '12px',
             }}
           >
@@ -929,7 +929,7 @@ export default function FileParser() {
     tab: (active) => ({
       padding: '6px 12px', background: active ? theme.bgAccent : 'transparent',
       color: active ? theme.bgPrimary : theme.textSecondary, border: 'none',
-      borderRadius: '4px', cursor: 'pointer', fontSize: '12px', fontFamily: font.mono, fontWeight: 500,
+      borderRadius: '4px', cursor: 'pointer', fontSize: '12px', fontFamily: font.ui, fontWeight: 500,
     }),
     section: {
       padding: '16px', background: theme.bgSecondary, borderRadius: radius.md, border: `1px solid ${theme.border}`,
@@ -939,13 +939,13 @@ export default function FileParser() {
     },
     grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px' },
     item: { padding: '8px 12px', background: theme.bgTertiary, borderRadius: radius.sm },
-    itemLabel: { fontSize: '11px', color: theme.textMuted, fontFamily: font.mono },
-    itemValue: { fontSize: '13px', color: theme.textPrimary, fontFamily: font.mono, marginTop: '2px', wordBreak: 'break-all' },
-    table: { width: '100%', borderCollapse: 'collapse', fontSize: '12px', fontFamily: font.mono },
+    itemLabel: { fontSize: '11px', color: theme.textMuted, fontFamily: font.ui },
+    itemValue: { fontSize: '13px', color: theme.textPrimary, fontFamily: font.ui, marginTop: '2px', wordBreak: 'break-all' },
+    table: { width: '100%', borderCollapse: 'collapse', fontSize: '12px', fontFamily: font.ui },
     th: { padding: '8px 12px', textAlign: 'left', borderBottom: `1px solid ${theme.border}`, color: theme.textSecondary, fontWeight: 500 },
     td: { padding: '8px 12px', borderBottom: `1px solid ${theme.border}40`, color: theme.textPrimary },
-    error: { padding: '12px', background: '#FEE2E2', borderRadius: radius.md, color: '#DC2626', fontFamily: font.mono },
-    empty: { padding: '20px', textAlign: 'center', color: theme.textMuted, fontFamily: font.mono },
+    error: { padding: '12px', background: '#FEE2E2', borderRadius: radius.md, color: '#DC2626', fontFamily: font.ui },
+    empty: { padding: '20px', textAlign: 'center', color: theme.textMuted, fontFamily: font.ui },
   }
 
   return (
@@ -958,7 +958,7 @@ export default function FileParser() {
         <div style={{ fontSize: '14px', color: theme.textSecondary, fontFamily: font.ui }}>
           {lang === 'zh' ? '点击选择或拖放文件' : 'Click to select or drop a file'}
         </div>
-        <div style={{ fontSize: '12px', color: theme.textMuted, marginTop: '8px', fontFamily: font.mono }}>
+        <div style={{ fontSize: '12px', color: theme.textMuted, marginTop: '8px', fontFamily: font.ui }}>
           {lang === 'zh' ? '支持 PE (Windows), ELF (Linux/Unix), Mach-O (macOS/iOS)' : 'Supports PE, ELF, Mach-O'}
         </div>
       </div>
@@ -967,8 +967,8 @@ export default function FileParser() {
         <div style={styles.fileInfo}>
           <span style={{ fontSize: '24px' }}>📄</span>
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: '14px', color: theme.textPrimary, fontFamily: font.mono }}>{fileName}</div>
-            <div style={{ fontSize: '12px', color: theme.textMuted, fontFamily: font.mono }}>{formatBytes(fileSize)}</div>
+            <div style={{ fontSize: '14px', color: theme.textPrimary, fontFamily: font.ui }}>{fileName}</div>
+            <div style={{ fontSize: '12px', color: theme.textMuted, fontFamily: font.ui }}>{formatBytes(fileSize)}</div>
           </div>
         </div>
       )}
@@ -1038,7 +1038,7 @@ export default function FileParser() {
                       items={imp.functions || []}
                       scrollKey={`import-${i}`}
                       renderItem={(f, j) => (
-                        <div key={j} style={{ padding: '4px 12px', fontSize: '12px', fontFamily: font.mono, color: theme.textSecondary }}>
+                        <div key={j} style={{ padding: '4px 12px', fontSize: '12px', fontFamily: font.ui, color: theme.textSecondary }}>
                           {f.hint && <span style={{ color: theme.textMuted }}>[{f.hint}] </span>}
                           {f.name}
                         </div>
@@ -1167,8 +1167,8 @@ export default function FileParser() {
                   <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
                     {result.loadCommands.map((lc, i) => (
                       <div key={i} style={{ padding: '8px 12px', background: theme.bgTertiary, borderRadius: radius.sm, marginBottom: '8px' }}>
-                        <div style={{ fontFamily: font.mono, color: theme.bgAccent }}>{lc.cmd}</div>
-                        <div style={{ fontSize: '11px', color: theme.textMuted, fontFamily: font.mono }}>
+                        <div style={{ fontFamily: font.ui, color: theme.bgAccent }}>{lc.cmd}</div>
+                        <div style={{ fontSize: '11px', color: theme.textMuted, fontFamily: font.ui }}>
                           {lc.details?.segment && <span>Segment: {lc.details.segment} </span>}
                           {lc.details?.entryOff && <span>Entry: {lc.details.entryOff}</span>}
                         </div>
@@ -1181,7 +1181,7 @@ export default function FileParser() {
               {result.tlsCallbacks?.length > 0 && (
                 <CollapsibleSection title={lang === 'zh' ? 'TLS回调' : 'TLS Callbacks'} count={result.tlsCallbacks?.length}>
                   {result.tlsCallbacks.map((cb, i) => (
-                    <div key={i} style={{ padding: '8px 12px', background: theme.bgTertiary, borderRadius: radius.sm, marginBottom: '8px', fontFamily: font.mono }}>
+                    <div key={i} style={{ padding: '8px 12px', background: theme.bgTertiary, borderRadius: radius.sm, marginBottom: '8px', fontFamily: font.ui }}>
                       {cb}
                     </div>
                   ))}
@@ -1212,7 +1212,7 @@ export default function FileParser() {
               {result.delayedImports?.length > 0 && (
                 <CollapsibleSection title={lang === 'zh' ? '延迟导入' : 'Delayed Imports'} count={result.delayedImports?.length}>
                   {result.delayedImports.map((di, i) => (
-                    <div key={i} style={{ padding: '8px 12px', background: theme.bgTertiary, borderRadius: radius.sm, marginBottom: '8px', fontFamily: font.mono }}>
+                    <div key={i} style={{ padding: '8px 12px', background: theme.bgTertiary, borderRadius: radius.sm, marginBottom: '8px', fontFamily: font.ui }}>
                       {di.module}
                     </div>
                   ))}
@@ -1225,7 +1225,7 @@ export default function FileParser() {
                     items={result.relocations}
                     scrollKey="relocations"
                     renderItem={(r, i) => (
-                      <div key={i} style={{ padding: '4px 12px', fontSize: '12px', fontFamily: font.mono }}>
+                      <div key={i} style={{ padding: '4px 12px', fontSize: '12px', fontFamily: font.ui }}>
                         {r.offset} → {r.info}
                       </div>
                     )}

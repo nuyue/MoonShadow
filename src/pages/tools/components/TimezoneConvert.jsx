@@ -73,7 +73,7 @@ const TimezoneConvert = () => {
       border: '1px solid #E2E8F0',
       borderRadius: '6px',
       fontSize: '14px',
-      fontFamily: 'monospace',
+      fontFamily: font.ui,
     },
     select: {
       width: '100%',
@@ -116,13 +116,13 @@ const TimezoneConvert = () => {
       fontSize: '18px',
       fontWeight: 600,
       color: '#1E293B',
-      fontFamily: 'monospace',
+      fontFamily: font.ui,
     },
     resultValueAccent: {
       fontSize: '18px',
       fontWeight: 600,
       color: '#0891B2',
-      fontFamily: 'monospace',
+      fontFamily: font.ui,
     },
     tzLabel: {
       fontSize: '12px',
@@ -153,7 +153,7 @@ const TimezoneConvert = () => {
       fontSize: '13px',
       fontWeight: 500,
       color: '#1E293B',
-      fontFamily: 'monospace',
+      fontFamily: font.ui,
     },
   }
 

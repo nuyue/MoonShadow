@@ -54,18 +54,18 @@ function ColorPickerPanel() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
         <input type="color" value={hex} onChange={e => setHex(e.target.value)} style={{ width: '60px', height: '60px', border: 'none', cursor: 'pointer', borderRadius: radius.md }} />
-        <input type="text" value={hex} onChange={e => setHex(e.target.value)} style={{ width: '120px', padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, fontSize: '16px', background: theme.bgSecondary, color: theme.textPrimary, outline: 'none' }} />
+        <input type="text" value={hex} onChange={e => setHex(e.target.value)} style={{ width: '120px', padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, fontSize: '16px', background: theme.bgSecondary, color: theme.textPrimary, outline: 'none' }} />
       </div>
       {rgb && (
         <div style={{ display: 'grid', gap: '12px' }}>
           <div style={{ padding: '12px', background: theme.bgSecondary, borderRadius: radius.md, border: `1px solid ${theme.border}` }}>
             <div style={{ fontWeight: 'bold', marginBottom: '4px', color: theme.textPrimary }}>RGB</div>
-            <div style={{ fontFamily: font.mono, color: theme.textSecondary }}>rgb({rgb.r}, {rgb.g}, {rgb.b})</div>
+            <div style={{ fontFamily: font.ui, color: theme.textSecondary }}>rgb({rgb.r}, {rgb.g}, {rgb.b})</div>
           </div>
           {hsl && (
             <div style={{ padding: '12px', background: theme.bgSecondary, borderRadius: radius.md, border: `1px solid ${theme.border}` }}>
               <div style={{ fontWeight: 'bold', marginBottom: '4px', color: theme.textPrimary }}>HSL</div>
-              <div style={{ fontFamily: font.mono, color: theme.textSecondary }}>hsl({hsl.h}, {hsl.s}%, {hsl.l}%)</div>
+              <div style={{ fontFamily: font.ui, color: theme.textSecondary }}>hsl({hsl.h}, {hsl.s}%, {hsl.l}%)</div>
             </div>
           )}
           <div style={{ height: '80px', background: hex, borderRadius: radius.md, border: `1px solid ${theme.border}` }} />
@@ -110,7 +110,7 @@ function ColorPalettePanel() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
         <input type="color" value={baseColor} onChange={e => setBaseColor(e.target.value)} style={{ width: '40px', height: '40px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, cursor: 'pointer', background: 'transparent' }} />
-        <input type="text" value={baseColor} onChange={e => setBaseColor(e.target.value)} style={{ width: '100px', padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, background: theme.bgSecondary, color: theme.textPrimary, outline: 'none' }} />
+        <input type="text" value={baseColor} onChange={e => setBaseColor(e.target.value)} style={{ width: '100px', padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, background: theme.bgSecondary, color: theme.textPrimary, outline: 'none' }} />
         <button onClick={() => navigator.clipboard.writeText(palette.join('\n'))} style={{ padding: '6px 12px', background: theme.bgAccent, color: theme.bgPrimary, border: 'none', borderRadius: radius.sm, cursor: 'pointer' }}>{useLang().lang === 'zh' ? '复制全部' : 'Copy All'}</button>
       </div>
 
@@ -137,7 +137,7 @@ function ColorPalettePanel() {
               <div style={{ backgroundColor: hex, height: '60px', borderRadius: radius.md, border: `1px solid ${theme.border}`, cursor: 'pointer', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', padding: '8px' }} onClick={() => handleCopy(hex, i)}>
                 <span style={{ fontSize: '11px', color: copiedIdx === i ? '#22c55e' : '#666' }}>{copiedIdx === i ? '已复制' : '点击复制'}</span>
               </div>
-              <div style={{ marginTop: '4px', fontFamily: font.mono, fontSize: '11px', color: theme.textSecondary }}>{hex.toUpperCase()}</div>
+              <div style={{ marginTop: '4px', fontFamily: font.ui, fontSize: '11px', color: theme.textSecondary }}>{hex.toUpperCase()}</div>
               <div style={{ fontSize: '10px', color: wcag.color }}>{wcag.label}</div>
             </div>
           )
@@ -181,14 +181,14 @@ function ContrastCheckerPanel() {
           <label style={{ fontSize: '12px', color: theme.textMuted, marginBottom: '8px', display: 'block' }}>{lang === 'zh' ? '前景色（文字）' : 'Foreground'}</label>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <input type="color" value={fg} onChange={e => setFg(e.target.value)} style={{ width: '40px', height: '40px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, cursor: 'pointer' }} />
-            <input type="text" value={fg} onChange={e => setFg(e.target.value)} style={{ flex: 1, padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, background: theme.bgSecondary, color: theme.textPrimary }} />
+            <input type="text" value={fg} onChange={e => setFg(e.target.value)} style={{ flex: 1, padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, background: theme.bgSecondary, color: theme.textPrimary }} />
           </div>
         </div>
         <div>
           <label style={{ fontSize: '12px', color: theme.textMuted, marginBottom: '8px', display: 'block' }}>{lang === 'zh' ? '背景色' : 'Background'}</label>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <input type="color" value={bg} onChange={e => setBg(e.target.value)} style={{ width: '40px', height: '40px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, cursor: 'pointer' }} />
-            <input type="text" value={bg} onChange={e => setBg(e.target.value)} style={{ flex: 1, padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, background: theme.bgSecondary, color: theme.textPrimary }} />
+            <input type="text" value={bg} onChange={e => setBg(e.target.value)} style={{ flex: 1, padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, background: theme.bgSecondary, color: theme.textPrimary }} />
           </div>
         </div>
       </div>
@@ -196,7 +196,7 @@ function ContrastCheckerPanel() {
       {result && (
         <>
           <div style={{ textAlign: 'center', padding: '16px', background: theme.bgSecondary, borderRadius: radius.md, border: `1px solid ${theme.border}` }}>
-            <div style={{ fontSize: '48px', fontWeight: 'bold', fontFamily: font.mono, color: getRatioColor(result.ratio) }}>{result.ratio.toFixed(2)}:1</div>
+            <div style={{ fontSize: '48px', fontWeight: 'bold', fontFamily: font.ui, color: getRatioColor(result.ratio) }}>{result.ratio.toFixed(2)}:1</div>
             <div style={{ fontSize: '14px', color: theme.textMuted }}>{lang === 'zh' ? '对比度比值' : 'Contrast Ratio'}</div>
           </div>
 
@@ -249,7 +249,7 @@ function CssGradientPanel() {
         {colors.map((c, i) => (
           <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
             <input type="color" value={c} onChange={e => setColors(colors.map((x, j) => j === i ? e.target.value : x))} style={{ width: '32px', height: '32px', border: 'none', borderRadius: radius.sm, cursor: 'pointer' }} />
-            <input type="text" value={c} onChange={e => setColors(colors.map((x, j) => j === i ? e.target.value : x))} style={{ width: '80px', padding: '4px 8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, fontSize: '11px', background: theme.bgSecondary, color: theme.textPrimary }} />
+            <input type="text" value={c} onChange={e => setColors(colors.map((x, j) => j === i ? e.target.value : x))} style={{ width: '80px', padding: '4px 8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, fontSize: '11px', background: theme.bgSecondary, color: theme.textPrimary }} />
           </div>
         ))}
         <button onClick={() => setColors([...colors, '#ffffff'])} style={{ padding: '6px 12px', background: theme.bgSecondary, border: `1px solid ${theme.border}`, borderRadius: radius.sm, cursor: 'pointer' }}>+</button>
@@ -257,7 +257,7 @@ function CssGradientPanel() {
       </div>
 
       <div style={{ padding: '12px', background: theme.bgSecondary, borderRadius: radius.md, border: `1px solid ${theme.border}` }}>
-        <pre style={{ margin: 0, fontFamily: font.mono, fontSize: '12px', color: theme.textPrimary, overflow: 'auto' }}>{cssCode}</pre>
+        <pre style={{ margin: 0, fontFamily: font.ui, fontSize: '12px', color: theme.textPrimary, overflow: 'auto' }}>{cssCode}</pre>
       </div>
 
       <button onClick={() => navigator.clipboard.writeText(cssCode)} style={{ padding: '8px 16px', background: theme.bgAccent, color: theme.bgPrimary, border: 'none', borderRadius: radius.sm, cursor: 'pointer' }}>{lang === 'zh' ? '复制 CSS' : 'Copy CSS'}</button>
@@ -298,7 +298,7 @@ function BoxShadowPanel() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         <span style={{ fontSize: '12px', color: theme.textMuted }}>Color:</span>
         <input type="color" value={color.startsWith('#') ? color : '#000000'} onChange={e => setColor(e.target.value)} style={{ width: '32px', height: '32px', border: 'none', borderRadius: radius.sm, cursor: 'pointer' }} />
-        <input type="text" value={color} onChange={e => setColor(e.target.value)} style={{ flex: 1, padding: '6px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, fontSize: '12px', background: theme.bgSecondary, color: theme.textPrimary }} />
+        <input type="text" value={color} onChange={e => setColor(e.target.value)} style={{ flex: 1, padding: '6px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, fontSize: '12px', background: theme.bgSecondary, color: theme.textPrimary }} />
       </div>
 
       <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
@@ -307,7 +307,7 @@ function BoxShadowPanel() {
       </label>
 
       <div style={{ padding: '12px', background: theme.bgSecondary, borderRadius: radius.md, border: `1px solid ${theme.border}` }}>
-        <pre style={{ margin: 0, fontFamily: font.mono, fontSize: '12px', color: theme.textPrimary }}>{cssCode}</pre>
+        <pre style={{ margin: 0, fontFamily: font.ui, fontSize: '12px', color: theme.textPrimary }}>{cssCode}</pre>
       </div>
 
       <button onClick={() => navigator.clipboard.writeText(cssCode)} style={{ padding: '8px 16px', background: theme.bgAccent, color: theme.bgPrimary, border: 'none', borderRadius: radius.sm, cursor: 'pointer' }}>{lang === 'zh' ? '复制 CSS' : 'Copy CSS'}</button>
@@ -340,7 +340,7 @@ function CssUnitPanel() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-        <input type="number" value={value} onChange={e => setValue(Number(e.target.value))} style={{ width: '100px', padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, fontSize: '16px', background: theme.bgSecondary, color: theme.textPrimary }} />
+        <input type="number" value={value} onChange={e => setValue(Number(e.target.value))} style={{ width: '100px', padding: '8px', border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, fontSize: '16px', background: theme.bgSecondary, color: theme.textPrimary }} />
         <CustomSelect value={unit} onChange={setUnit} options={CSS_UNITS.map(u => ({ value: u, label: u }))} />
       </div>
 
@@ -356,7 +356,7 @@ function CssUnitPanel() {
           {Object.entries(conversions).map(([u, v]) => (
             <div key={u} style={{ padding: '12px', background: theme.bgSecondary, borderRadius: radius.md, border: `1px solid ${theme.border}` }}>
               <div style={{ fontSize: '11px', color: theme.textMuted }}>{u}</div>
-              <div style={{ fontSize: '18px', fontFamily: font.mono, color: theme.textPrimary }}>{v.toFixed(4)}</div>
+              <div style={{ fontSize: '18px', fontFamily: font.ui, color: theme.textPrimary }}>{v.toFixed(4)}</div>
             </div>
           ))}
         </div>

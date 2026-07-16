@@ -183,12 +183,12 @@ export default function TextTool() {
     textarea: {
       width: '100%', minHeight: '200px', padding: '12px', background: theme.bgSecondary,
       color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-      fontFamily: font.mono, fontSize: '13px', resize: 'vertical', outline: 'none',
+      fontFamily: font.ui, fontSize: '13px', resize: 'vertical', outline: 'none',
     },
     textareaOutput: {
       width: '100%', minHeight: '200px', padding: '12px', background: theme.bgTertiary,
       color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-      fontFamily: font.mono, fontSize: '13px', resize: 'vertical',
+      fontFamily: font.ui, fontSize: '13px', resize: 'vertical',
     },
     grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: '12px' },
     statCard: {
@@ -196,7 +196,7 @@ export default function TextTool() {
       textAlign: 'center', border: `1px solid ${theme.border}`,
     },
     diffLine: (type) => ({
-      padding: '2px 8px', fontFamily: font.mono, fontSize: '12px',
+      padding: '2px 8px', fontFamily: font.ui, fontSize: '12px',
       background: type === 'added' ? '#22C55E20' : type === 'removed' ? '#EF444420' : 'transparent',
       color: type === 'added' ? '#22C55E' : type === 'removed' ? '#EF4444' : theme.textPrimary,
     }),
@@ -268,29 +268,29 @@ export default function TextTool() {
       {tool === 'regex' && (
         <div style={styles.toolbar}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <span style={{ color: theme.bgAccent, fontFamily: font.mono }}>/</span>
+            <span style={{ color: theme.bgAccent, fontFamily: font.ui }}>/</span>
             <input
               type="text"
               value={regexPattern}
               onChange={e => setRegexPattern(e.target.value)}
               placeholder={lang === 'zh' ? '正则表达式' : 'Regex pattern'}
-              style={{ width: '200px', padding: '6px 10px', background: theme.bgSecondary, color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, fontSize: '12px', outline: 'none' }}
+              style={{ width: '200px', padding: '6px 10px', background: theme.bgSecondary, color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, fontSize: '12px', outline: 'none' }}
             />
-            <span style={{ color: theme.bgAccent, fontFamily: font.mono }}>/</span>
+            <span style={{ color: theme.bgAccent, fontFamily: font.ui }}>/</span>
           </div>
           <input
             type="text"
             value={regexFlags}
             onChange={e => setRegexFlags(e.target.value.replace(/[^gimsu]/g, ''))}
             placeholder="flags"
-            style={{ width: '60px', padding: '6px 10px', background: theme.bgSecondary, color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, fontSize: '12px', outline: 'none' }}
+            style={{ width: '60px', padding: '6px 10px', background: theme.bgSecondary, color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, fontSize: '12px', outline: 'none' }}
           />
           <input
             type="text"
             value={replaceText}
             onChange={e => setReplaceText(e.target.value)}
             placeholder={lang === 'zh' ? '替换为...' : 'Replace with...'}
-            style={{ width: '150px', padding: '6px 10px', background: theme.bgSecondary, color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.mono, fontSize: '12px', outline: 'none' }}
+            style={{ width: '150px', padding: '6px 10px', background: theme.bgSecondary, color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.sm, fontFamily: font.ui, fontSize: '12px', outline: 'none' }}
           />
         </div>
       )}
@@ -334,7 +334,7 @@ export default function TextTool() {
             { label: lang === 'zh' ? '字节数' : 'Bytes', value: stats.bytes },
           ].map((item, i) => (
             <div key={i} style={styles.statCard}>
-              <div style={{ fontSize: '24px', fontWeight: 'bold', color: theme.bgAccent, fontFamily: font.mono }}>{item.value}</div>
+              <div style={{ fontSize: '24px', fontWeight: 'bold', color: theme.bgAccent, fontFamily: font.ui }}>{item.value}</div>
               <div style={{ color: theme.textSecondary, fontSize: '12px', fontFamily: font.ui }}>{item.label}</div>
             </div>
           ))}
@@ -359,14 +359,14 @@ export default function TextTool() {
 
       {tool === 'regex' && (
         <>
-          {regexError && <div style={{ padding: '8px 12px', background: '#FEE2E2', borderRadius: radius.sm, color: '#DC2626', fontFamily: font.mono, fontSize: '12px' }}>{regexError}</div>}
+          {regexError && <div style={{ padding: '8px 12px', background: '#FEE2E2', borderRadius: radius.sm, color: '#DC2626', fontFamily: font.ui, fontSize: '12px' }}>{regexError}</div>}
           {regexMatches.length > 0 && (
             <div style={{ background: theme.bgSecondary, borderRadius: radius.md, border: `1px solid ${theme.border}`, padding: '12px' }}>
               <div style={{ fontSize: '12px', color: theme.textMuted, marginBottom: '8px', fontFamily: font.ui }}>
                 {lang === 'zh' ? `找到 ${regexMatches.length} 个匹配` : `${regexMatches.length} matches`}
               </div>
               {regexMatches.slice(0, 50).map((m, i) => (
-                <div key={i} style={{ padding: '4px 8px', fontFamily: font.mono, fontSize: '12px' }}>
+                <div key={i} style={{ padding: '4px 8px', fontFamily: font.ui, fontSize: '12px' }}>
                   <span style={{ color: theme.textMuted }}>[{m.index}]</span>
                   <span style={{ color: theme.bgAccent, marginLeft: '8px' }}>{m.value}</span>
                 </div>

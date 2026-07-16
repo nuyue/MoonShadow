@@ -378,11 +378,11 @@ export default function ReferenceTable() {
             onMouseEnter={e => e.currentTarget.style.background = theme.bgSecondary}
             onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
           >
-            <td style={{ ...styles.td, fontFamily: font.mono, color: theme.textAccent }}>{entry.code}</td>
-            <td style={{ ...styles.td, fontFamily: font.mono }}>{entry.hex}</td>
-            <td style={{ ...styles.td, fontFamily: font.mono, fontWeight: 600, color: theme.textPrimary, minWidth: '40px' }}>{entry.char}</td>
+            <td style={{ ...styles.td, fontFamily: font.ui, color: theme.textAccent }}>{entry.code}</td>
+            <td style={{ ...styles.td, fontFamily: font.ui }}>{entry.hex}</td>
+            <td style={{ ...styles.td, fontFamily: font.ui, fontWeight: 600, color: theme.textPrimary, minWidth: '40px' }}>{entry.char}</td>
             <td style={{ ...styles.td, color: theme.textSecondary }}>{entry.description}</td>
-            <td style={{ ...styles.td, fontFamily: font.mono, color: theme.textMuted }}>{entry.htmlEntity || '—'}</td>
+            <td style={{ ...styles.td, fontFamily: font.ui, color: theme.textMuted }}>{entry.htmlEntity || '—'}</td>
           </tr>
         ))}
       </tbody>
@@ -408,7 +408,7 @@ export default function ReferenceTable() {
             onMouseEnter={e => e.currentTarget.style.background = theme.bgSecondary}
             onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
           >
-            <td style={{ ...styles.td, fontFamily: font.mono, fontWeight: 600, color: getHttpColor(entry.code), fontSize: '15px' }}>{entry.code}</td>
+            <td style={{ ...styles.td, fontFamily: font.ui, fontWeight: 600, color: getHttpColor(entry.code), fontSize: '15px' }}>{entry.code}</td>
             <td style={{ ...styles.td, fontFamily: font.ui, fontWeight: 500, color: theme.textPrimary }}>{entry.desc}</td>
             <td style={{ ...styles.td, color: theme.textSecondary }}>{entry.meaning}</td>
             <td style={styles.td}>
@@ -439,8 +439,8 @@ export default function ReferenceTable() {
             onMouseEnter={e => e.currentTarget.style.background = theme.bgSecondary}
             onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
           >
-            <td style={{ ...styles.td, fontFamily: font.mono, fontWeight: 600, color: theme.textPrimary }}>{entry.ext}</td>
-            <td style={{ ...styles.td, fontFamily: font.mono, color: theme.textAccent }}>{entry.type}</td>
+            <td style={{ ...styles.td, fontFamily: font.ui, fontWeight: 600, color: theme.textPrimary }}>{entry.ext}</td>
+            <td style={{ ...styles.td, fontFamily: font.ui, color: theme.textAccent }}>{entry.type}</td>
             <td style={{ ...styles.td, color: theme.textSecondary }}>{entry.desc}</td>
             <td style={styles.td}>
               <span style={{ ...styles.badge, background: `${theme.bgAccent}20`, color: theme.bgAccent }}>{entry.category}</span>
@@ -471,7 +471,7 @@ export default function ReferenceTable() {
             onMouseEnter={e => e.currentTarget.style.background = theme.bgSecondary}
             onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
           >
-            <td style={{ ...styles.td, fontFamily: font.mono, fontWeight: 600, color: theme.textAccent }}>{entry.port}</td>
+            <td style={{ ...styles.td, fontFamily: font.ui, fontWeight: 600, color: theme.textAccent }}>{entry.port}</td>
             <td style={{ ...styles.td, fontWeight: 500, color: theme.textPrimary }}>{entry.service}</td>
             <td style={styles.td}>
               <span style={{ ...styles.badge, background: `${getProtocolColor(entry.protocol)}20`, color: getProtocolColor(entry.protocol) }}>{entry.protocol}</span>

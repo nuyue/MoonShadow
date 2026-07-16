@@ -80,7 +80,7 @@ const IpSubnet = () => {
     border: `1px solid ${theme.border}`,
     borderRadius: radius.md,
     color: theme.textPrimary,
-    fontFamily: font.mono,
+    fontFamily: font.ui,
     fontSize: '13px',
     outline: 'none',
     transition: 'border-color 0.15s ease',
@@ -150,7 +150,7 @@ const IpSubnet = () => {
                 <div style={{ fontSize: '11px', color: theme.textMuted, marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   {item.label}
                 </div>
-                <div style={{ fontFamily: font.mono, fontSize: '14px', fontWeight: 600, color: theme.textPrimary }}>
+                <div style={{ fontFamily: font.ui, fontSize: '14px', fontWeight: 600, color: theme.textPrimary }}>
                   {item.value}
                 </div>
               </div>
@@ -173,7 +173,7 @@ const IpSubnet = () => {
                 { cidr: '/16', hosts: '65536 个地址' },
               ].map(item => (
                 <div key={item.cidr} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px' }}>
-                  <span style={{ color: theme.textMuted, fontFamily: font.mono }}>{item.cidr}</span>
+                  <span style={{ color: theme.textMuted, fontFamily: font.ui }}>{item.cidr}</span>
                   <span style={{ color: theme.textPrimary }}>{item.hosts}</span>
                 </div>
               ))}

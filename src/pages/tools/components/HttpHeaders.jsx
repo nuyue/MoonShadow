@@ -158,7 +158,7 @@ const HttpHeaders = () => {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-              <span style={{ fontFamily: font.mono, fontWeight: 600, fontSize: '13px', color: theme.textPrimary }}>
+              <span style={{ fontFamily: font.ui, fontWeight: 600, fontSize: '13px', color: theme.textPrimary }}>
                 {header.name}
               </span>
               <span style={{
@@ -180,7 +180,7 @@ const HttpHeaders = () => {
                 padding: '8px 12px',
                 background: theme.bgTertiary,
                 borderRadius: radius.sm,
-                fontFamily: font.mono,
+                fontFamily: font.ui,
                 fontSize: '11px',
                 color: theme.textMuted,
                 overflow: 'auto',

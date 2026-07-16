@@ -576,10 +576,10 @@ export default function BarcodeQrTool() {
     textarea: {
       width: '100%', minHeight: '100px', padding: '12px', background: 'transparent',
       color: theme.textPrimary, border: `1px solid ${theme.border}`, borderRadius: radius.md,
-      fontFamily: font.mono, fontSize: '13px', resize: 'vertical', outline: 'none',
+      fontFamily: font.ui, fontSize: '13px', resize: 'vertical', outline: 'none',
       transition: 'border-color 0.15s, background 0.15s',
     },
-    label: { fontSize: '11px', fontFamily: font.mono, color: theme.textMuted, marginBottom: '6px', display: 'block' },
+    label: { fontSize: '11px', fontFamily: font.ui, color: theme.textMuted, marginBottom: '6px', display: 'block' },
     row: { display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' },
     preview: {
       background: theme.bgTertiary, border: `1px solid ${theme.border}`,
@@ -609,7 +609,7 @@ export default function BarcodeQrTool() {
       marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px',
     },
     uploadRow: { display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' },
-    uploadHint: { fontSize: '11px', fontFamily: font.mono, color: theme.textMuted, marginTop: '6px', marginBottom: 0 },
+    uploadHint: { fontSize: '11px', fontFamily: font.ui, color: theme.textMuted, marginTop: '6px', marginBottom: 0 },
   }
 
   const modeOptions = [
@@ -917,7 +917,7 @@ export default function BarcodeQrTool() {
           {scanResult && (
             <>
               <div style={{ padding: '12px', background: theme.bgSecondary, borderRadius: radius.md, border: `1px solid ${theme.border}` }}>
-                <p style={{ color: theme.textPrimary, fontFamily: font.mono, fontSize: '13px', wordBreak: 'break-all', margin: 0 }}>{scanResult}</p>
+                <p style={{ color: theme.textPrimary, fontFamily: font.ui, fontSize: '13px', wordBreak: 'break-all', margin: 0 }}>{scanResult}</p>
               </div>
               <div style={styles.row}>
                 <button onClick={() => navigator.clipboard.writeText(scanResult)} style={styles.primaryButton}>{lang === 'zh' ? '复制' : 'Copy'}</button>

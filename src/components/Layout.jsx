@@ -451,7 +451,7 @@ function Layout() {
 
               {/* 歌曲列表 */}
               <div style={{ marginTop: '12px' }}>
-                <div style={{ fontSize: '11px', color: theme.textMuted, marginBottom: '8px', fontFamily: font.mono }}>
+                <div style={{ fontSize: '11px', color: theme.textMuted, marginBottom: '8px', fontFamily: font.ui }}>
                   {lang === 'zh' ? '播放列表' : 'Playlist'}
                 </div>
                 {songs.map((track, index) => (
@@ -680,7 +680,7 @@ function Layout() {
                     color: theme.textPrimary,
                     borderRadius: '4px',
                     fontSize: '11px',
-                    fontFamily: font.mono,
+                    fontFamily: font.ui,
                     whiteSpace: 'nowrap',
                     border: `1px solid ${theme.border}`,
                     opacity: 0,
@@ -742,7 +742,7 @@ function Layout() {
                 color: theme.textPrimary,
                 borderRadius: '4px',
                 fontSize: '11px',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
                 whiteSpace: 'nowrap',
                 border: `1px solid ${theme.border}`,
                 opacity: 0,
@@ -792,7 +792,7 @@ function Layout() {
                 color: theme.textPrimary,
                 borderRadius: '4px',
                 fontSize: '11px',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
                 whiteSpace: 'nowrap',
                 border: `1px solid ${theme.border}`,
                 opacity: 0,
@@ -842,7 +842,7 @@ function Layout() {
                 color: theme.textPrimary,
                 borderRadius: '4px',
                 fontSize: '11px',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
                 whiteSpace: 'nowrap',
                 border: `1px solid ${theme.border}`,
                 opacity: 0,
@@ -885,7 +885,7 @@ function Layout() {
         justifyContent: 'space-between',
         padding: '0 12px',
         fontSize: '11px',
-        fontFamily: font.mono,
+        fontFamily: font.ui,
         color: theme.textMuted,
         zIndex: 100,
         whiteSpace: 'nowrap',

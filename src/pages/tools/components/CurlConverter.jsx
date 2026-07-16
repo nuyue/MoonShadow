@@ -192,7 +192,7 @@ const CurlConverter = () => {
     border: `1px solid ${theme.border}`,
     borderRadius: radius.md,
     color: theme.textPrimary,
-    fontFamily: font.mono,
+    fontFamily: font.ui,
     fontSize: '13px',
     resize: 'vertical',
     outline: 'none',

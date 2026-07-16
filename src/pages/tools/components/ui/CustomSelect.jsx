@@ -37,7 +37,7 @@ export default function CustomSelect({ value, onChange, options, placeholder }) 
           borderRadius: radius.sm,
           color: selectedOption ? theme.textPrimary : theme.textMuted,
           fontSize: '12px',
-          fontFamily: font.mono,
+          fontFamily: font.ui,
           cursor: 'pointer',
           outline: 'none',
           transition: 'all 0.15s',
@@ -73,7 +73,7 @@ export default function CustomSelect({ value, onChange, options, placeholder }) 
               style={{
                 padding: '6px 12px',
                 fontSize: '12px',
-                fontFamily: font.mono,
+                fontFamily: font.ui,
                 color: theme.textSecondary,
                 cursor: 'pointer',
                 transition: 'all 0.1s',

@@ -566,7 +566,17 @@ function Articles() {
                         borderRadius: '4px',
                         fontSize: '10px',
                       }}>
-                        {post.categories[0]}
+                        {(() => {
+                          const cat = post.categories[0]
+                          const categoryNames = {
+                            tech: { zh: '技术', en: 'Tech' },
+                            dev: { zh: '开发', en: 'Dev' },
+                            life: { zh: '生活', en: 'Life' },
+                            other: { zh: '其他', en: 'Other' }
+                          }
+                          const id = cat.toLowerCase()
+                          return categoryNames[id] ? categoryNames[id][lang] : cat
+                        })()}
                       </span>
                     )}
 

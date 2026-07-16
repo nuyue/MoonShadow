@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": ["/music/*", "/favicon.ico", "/*.svg", "/*.png", "/*.jpg", "/*.jpeg", "/*.gif", "/*.ico", "/*.woff", "/*.woff2", "/*.ttf", "/*.eot", "/*.js", "/*.css"]
+}
